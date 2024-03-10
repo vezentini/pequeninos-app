@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "477116345462",
+    "project_id": "pequeninos-app-1woiln",
+    "storage_bucket": "pequeninos-app-1woiln.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477116345462:android:c6889e41fb3a8647018357",
+        "android_client_info": {
+          "package_name": "com.mycompany.pequeninosapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMjr7mzp7tpKtIJ77whW-ihsjWb5rOiZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
