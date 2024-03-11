@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'summaries_component_model.dart';
 export 'summaries_component_model.dart';
@@ -99,10 +100,10 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(1.0, 1.0),
+          alignment: AlignmentDirectional(1.0, 1.0),
           child: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
               child: FloatingActionButton(
                 onPressed: () async {
                   await showDialog(
@@ -112,7 +113,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
                         elevation: 0,
                         insetPadding: EdgeInsets.zero,
                         backgroundColor: Colors.transparent,
-                        alignment: const AlignmentDirectional(0.0, 0.0)
+                        alignment: AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
                         child: SummaryUpsertWidget(
                           studentId: '',

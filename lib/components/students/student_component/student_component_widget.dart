@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'student_component_model.dart';
 export 'student_component_model.dart';
 
@@ -34,8 +37,8 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: const Offset(0.0, 100.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -90,7 +93,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                       final classesItem = classes[classesIndex];
                       return Builder(
                         builder: (context) => Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 1.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -105,9 +108,9 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                     elevation: 0,
                                     insetPadding: EdgeInsets.zero,
                                     backgroundColor: Colors.transparent,
-                                    alignment: const AlignmentDirectional(0.0, 0.0)
+                                    alignment: AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
-                                    child: const StudentUpsertWidget(
+                                    child: StudentUpsertWidget(
                                       id: '',
                                       name: '',
                                       gender: '',
@@ -121,7 +124,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 0.0,
                                     color: Color(0xFFE0E3E7),
@@ -131,7 +134,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                 borderRadius: BorderRadius.circular(0.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -143,7 +146,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'Estudante',
@@ -153,7 +156,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                                   .override(
                                                     fontFamily:
                                                         'Plus Jakarta Sans',
-                                                    color: const Color(0xFF14181B),
+                                                    color: Color(0xFF14181B),
                                                     fontSize: 16.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -171,7 +174,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                             BorderRadius.circular(40.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(4.0),
+                                        padding: EdgeInsets.all(4.0),
                                         child: Icon(
                                           Icons.keyboard_arrow_right_rounded,
                                           color: FlutterFlowTheme.of(context)
@@ -196,10 +199,10 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(1.0, 1.0),
+          alignment: AlignmentDirectional(1.0, 1.0),
           child: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
               child: FloatingActionButton(
                 onPressed: () async {
                   await showDialog(
@@ -209,9 +212,9 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                         elevation: 0,
                         insetPadding: EdgeInsets.zero,
                         backgroundColor: Colors.transparent,
-                        alignment: const AlignmentDirectional(0.0, 0.0)
+                        alignment: AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
-                        child: const StudentUpsertWidget(),
+                        child: StudentUpsertWidget(),
                       );
                     },
                   ).then((value) => setState(() {}));

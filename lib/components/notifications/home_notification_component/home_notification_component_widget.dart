@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'home_notification_component_model.dart';
 export 'home_notification_component_model.dart';
 
@@ -42,7 +44,7 @@ class _HomeNotificationComponentWidgetState
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
           child: Container(
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).info,
@@ -50,7 +52,7 @@ class _HomeNotificationComponentWidgetState
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Builder(
                     builder: (context) {
                       final classes = List.generate(
@@ -64,7 +66,7 @@ class _HomeNotificationComponentWidgetState
                         itemBuilder: (context, classesIndex) {
                           final classesItem = classes[classesIndex];
                           return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 10.0, 16.0, 0.0),
                             child: Container(
                               width: double.infinity,
@@ -74,7 +76,7 @@ class _HomeNotificationComponentWidgetState
                                   BoxShadow(
                                     blurRadius: 3.0,
                                     color: FlutterFlowTheme.of(context).success,
-                                    offset: const Offset(0.0, 1.0),
+                                    offset: Offset(0.0, 1.0),
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(12.0),
@@ -84,14 +86,14 @@ class _HomeNotificationComponentWidgetState
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(12.0),
+                                padding: EdgeInsets.all(12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 4.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -114,7 +116,7 @@ class _HomeNotificationComponentWidgetState
                                                   ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 '\"You are so awesome! Keep it up!\"',
@@ -132,7 +134,7 @@ class _HomeNotificationComponentWidgetState
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 0.0),
                                               child: ClipRRect(
@@ -165,10 +167,10 @@ class _HomeNotificationComponentWidgetState
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(1.0, 1.0),
+          alignment: AlignmentDirectional(1.0, 1.0),
           child: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
               child: FloatingActionButton(
                 onPressed: () async {
                   await showDialog(
@@ -178,9 +180,9 @@ class _HomeNotificationComponentWidgetState
                         elevation: 0,
                         insetPadding: EdgeInsets.zero,
                         backgroundColor: Colors.transparent,
-                        alignment: const AlignmentDirectional(0.0, 0.0)
+                        alignment: AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
-                        child: const NotificationsUpsertWidget(
+                        child: NotificationsUpsertWidget(
                           id: '',
                           classId: '',
                           title: '',
