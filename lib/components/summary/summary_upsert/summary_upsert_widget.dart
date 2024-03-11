@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'summary_upsert_model.dart';
 export 'summary_upsert_model.dart';
 
@@ -59,11 +58,6 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
     super.initState();
     _model = createModel(context, () => SummaryUpsertModel());
 
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Navigator.pop(context);
-    });
-
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -108,17 +102,17 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
             maxWidth: 530.0,
           ),
           decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: const [
+            color: FlutterFlowTheme.of(context).info,
+            boxShadow: [
               BoxShadow(
                 blurRadius: 3.0,
-                color: Color(0x33000000),
-                offset: Offset(0.0, 1.0),
+                color: FlutterFlowTheme.of(context).primaryBackground,
+                offset: const Offset(0.0, 1.0),
               )
             ],
             borderRadius: BorderRadius.circular(24.0),
             border: Border.all(
-              color: const Color(0xFFF5FBFB),
+              color: FlutterFlowTheme.of(context).success,
               width: 1.0,
             ),
           ),
@@ -175,7 +169,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                               .headlineMedium
                               .override(
                                 fontFamily: 'Roboto',
-                                color: const Color(0xFF101518),
+                                color: FlutterFlowTheme.of(context).success,
                                 fontSize: 28.0,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -202,8 +196,12 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                               children: [
                                 Text(
                                   'Aluno:',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.black,
+                                      ),
                                 ),
                                 Expanded(
                                   child: Padding(
@@ -219,6 +217,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
+                                              color: Colors.black,
                                               fontSize: 12.0,
                                             ),
                                         hintText: widget.studentId,
@@ -226,6 +225,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
+                                              color: Colors.black,
                                               fontSize: 12.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -237,6 +237,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       keyboardType: TextInputType.name,
@@ -255,8 +256,12 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 children: [
                                   Text(
                                     'Data:',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.black,
+                                        ),
                                   ),
                                   Expanded(
                                     child: Padding(
@@ -273,6 +278,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .labelMedium
                                                   .override(
                                                     fontFamily: 'Readex Pro',
+                                                    color: Colors.black,
                                                     fontSize: 12.0,
                                                   ),
                                           hintText: widget.date?.toString(),
@@ -281,6 +287,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .labelMedium
                                                   .override(
                                                     fontFamily: 'Readex Pro',
+                                                    color: Colors.black,
                                                     fontSize: 12.0,
                                                   ),
                                           enabledBorder: InputBorder.none,
@@ -289,7 +296,11 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           focusedErrorBorder: InputBorder.none,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         validator: _model
                                             .textController2Validator
                                             .asValidator(context),
@@ -333,6 +344,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
+                                        color: Colors.black,
                                         fontSize: 12.0,
                                       ),
                                 ),
@@ -348,10 +360,18 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       decoration: InputDecoration(
                                         labelText: 'Refeição',
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         hintText: widget.mornningSnack,
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -364,7 +384,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .success,
                                             width: 2.0,
                                           ),
                                           borderRadius:
@@ -393,6 +413,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       validator: _model.textController3Validator
@@ -418,6 +439,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       hintText: widget.mornningSnackConsumn,
@@ -427,8 +449,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .secondaryText,
                                         size: 24.0,
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).info,
                                       elevation: 2.0,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -456,6 +478,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
+                                        color: Colors.black,
                                         fontSize: 12.0,
                                       ),
                                 ),
@@ -471,9 +494,17 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       decoration: InputDecoration(
                                         labelText: 'Refeição',
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -486,7 +517,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .success,
                                             width: 2.0,
                                           ),
                                           borderRadius:
@@ -515,6 +546,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       validator: _model.textController4Validator
@@ -540,6 +572,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       hintText: widget.luncheonConsumn,
@@ -549,8 +582,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .secondaryText,
                                         size: 24.0,
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).info,
                                       elevation: 2.0,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -597,6 +630,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
+                                        color: Colors.black,
                                         fontSize: 12.0,
                                       ),
                                 ),
@@ -612,9 +646,17 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       decoration: InputDecoration(
                                         labelText: 'Refeição',
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -627,7 +669,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .info,
                                             width: 2.0,
                                           ),
                                           borderRadius:
@@ -656,6 +698,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       validator: _model.textController5Validator
@@ -681,6 +724,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       hintText: widget.afternoonSnackConsumn,
@@ -690,8 +734,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .secondaryText,
                                         size: 24.0,
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).info,
                                       elevation: 2.0,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -719,6 +763,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
+                                        color: Colors.black,
                                         fontSize: 12.0,
                                       ),
                                 ),
@@ -736,7 +781,11 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.black,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -749,7 +798,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .success,
                                             width: 2.0,
                                           ),
                                           borderRadius:
@@ -778,6 +827,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       validator: _model.textController6Validator
@@ -803,6 +853,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 12.0,
                                           ),
                                       hintText: widget.preDinnerConsumn,
@@ -812,8 +863,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .secondaryText,
                                         size: 24.0,
                                       ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      fillColor:
+                                          FlutterFlowTheme.of(context).info,
                                       elevation: 2.0,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .alternate,
@@ -867,10 +918,18 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           labelText: 'Label here...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.black,
+                                                  ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.black,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -885,7 +944,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .success,
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -917,6 +976,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
+                                              color: Colors.black,
                                               fontSize: 12.0,
                                             ),
                                         maxLines: 10,

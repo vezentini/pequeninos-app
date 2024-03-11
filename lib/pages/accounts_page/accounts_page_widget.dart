@@ -1,13 +1,13 @@
-import '/components/classes/classes_component/classes_component_widget.dart';
+import '/components/accounts/accounts_component/accounts_component_widget.dart';
 import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'classes_page_model.dart';
-export 'classes_page_model.dart';
+import 'accounts_page_model.dart';
+export 'accounts_page_model.dart';
 
-class ClassesPageWidget extends StatefulWidget {
-  const ClassesPageWidget({
+class AccountsPageWidget extends StatefulWidget {
+  const AccountsPageWidget({
     super.key,
     this.email,
     this.name,
@@ -21,18 +21,18 @@ class ClassesPageWidget extends StatefulWidget {
   final String? studentId;
 
   @override
-  State<ClassesPageWidget> createState() => _ClassesPageWidgetState();
+  State<AccountsPageWidget> createState() => _AccountsPageWidgetState();
 }
 
-class _ClassesPageWidgetState extends State<ClassesPageWidget> {
-  late ClassesPageModel _model;
+class _AccountsPageWidgetState extends State<AccountsPageWidget> {
+  late AccountsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ClassesPageModel());
+    _model = createModel(context, () => AccountsPageModel());
   }
 
   @override
@@ -50,7 +50,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).alternate,
+        backgroundColor: FlutterFlowTheme.of(context).info,
         drawer: SizedBox(
           width: 250.0,
           child: Drawer(
@@ -92,9 +92,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
         body: SafeArea(
           top: true,
           child: wrapWithModel(
-            model: _model.classesComponentModel,
+            model: _model.accountsComponentModel,
             updateCallback: () => setState(() {}),
-            child: const ClassesComponentWidget(),
+            child: const AccountsComponentWidget(),
           ),
         ),
       ),

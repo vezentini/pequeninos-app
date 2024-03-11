@@ -1,23 +1,24 @@
-import '/components/students/student_upsert/student_upsert_widget.dart';
+import '/components/accounts/account_upsert/account_upsert_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'student_component_model.dart';
-export 'student_component_model.dart';
+import 'accounts_component_model.dart';
+export 'accounts_component_model.dart';
 
-class StudentComponentWidget extends StatefulWidget {
-  const StudentComponentWidget({super.key});
+class AccountsComponentWidget extends StatefulWidget {
+  const AccountsComponentWidget({super.key});
 
   @override
-  State<StudentComponentWidget> createState() => _StudentComponentWidgetState();
+  State<AccountsComponentWidget> createState() =>
+      _AccountsComponentWidgetState();
 }
 
-class _StudentComponentWidgetState extends State<StudentComponentWidget>
+class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
     with TickerProviderStateMixin {
-  late StudentComponentModel _model;
+  late AccountsComponentModel _model;
 
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
@@ -50,7 +51,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => StudentComponentModel());
+    _model = createModel(context, () => AccountsComponentModel());
 
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -107,11 +108,13 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                     backgroundColor: Colors.transparent,
                                     alignment: const AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
-                                    child: const StudentUpsertWidget(
+                                    child: const AccountUpsertWidget(
                                       id: '',
                                       name: '',
-                                      gender: '',
-                                      classId: '',
+                                      email: '',
+                                      document: '',
+                                      phone: '',
+                                      resetPassword: false,
                                     ),
                                   );
                                 },
@@ -146,7 +149,7 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              'Estudante',
+                                              'Usuário abc',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyLarge
@@ -211,7 +214,14 @@ class _StudentComponentWidgetState extends State<StudentComponentWidget>
                         backgroundColor: Colors.transparent,
                         alignment: const AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
-                        child: const StudentUpsertWidget(),
+                        child: const AccountUpsertWidget(
+                          id: '',
+                          name: '',
+                          email: '',
+                          document: '',
+                          phone: '',
+                          resetPassword: false,
+                        ),
                       );
                     },
                   ).then((value) => setState(() {}));

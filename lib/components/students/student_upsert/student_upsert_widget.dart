@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'student_upsert_model.dart';
 export 'student_upsert_model.dart';
 
@@ -13,15 +12,17 @@ class StudentUpsertWidget extends StatefulWidget {
     super.key,
     String? id,
     String? name,
-    this.gender,
-    this.classId,
-  })  : id = id ?? '\"\"',
-        name = name ?? '\"\"';
+    String? gender,
+    String? classId,
+  })  : id = id ?? '123sqe',
+        name = name ?? '1231ads',
+        gender = gender ?? 'dasq123',
+        classId = classId ?? 'qwqad';
 
   final String id;
   final String name;
-  final String? gender;
-  final String? classId;
+  final String gender;
+  final String classId;
 
   @override
   State<StudentUpsertWidget> createState() => _StudentUpsertWidgetState();
@@ -40,11 +41,6 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => StudentUpsertModel());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Navigator.pop(context);
-    });
 
     _model.textController ??= TextEditingController(text: widget.name);
     _model.textFieldFocusNode ??= FocusNode();
@@ -129,13 +125,13 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                       Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Turma',
+                          'Alunos',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
                                 fontFamily: 'Roboto',
-                                color: const Color(0xFF101518),
+                                color: FlutterFlowTheme.of(context).success,
                                 fontSize: 28.0,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -192,15 +188,14 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
+                                    color: FlutterFlowTheme.of(context).success,
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context).success,
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(10.0),
@@ -220,7 +215,12 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.black,
+                                  ),
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),
@@ -236,8 +236,12 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                   setState(() => _model.dropDownValue1 = val),
                               width: 320.0,
                               height: 56.0,
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.black,
+                                  ),
                               hintText: widget.gender,
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -245,11 +249,9 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                     FlutterFlowTheme.of(context).secondaryText,
                                 size: 24.0,
                               ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              fillColor: FlutterFlowTheme.of(context).info,
                               elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
+                              borderColor: FlutterFlowTheme.of(context).success,
                               borderWidth: 2.0,
                               borderRadius: 8.0,
                               margin: const EdgeInsetsDirectional.fromSTEB(
@@ -269,20 +271,21 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                               options: const <String>[],
                               onChanged: (val) =>
                                   setState(() => _model.dropDownValue2 = val),
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.black,
+                                  ),
                               hintText: 'Selecione a turma',
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.keyboard_arrow_down_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
+                                color: Colors.black,
                                 size: 24.0,
                               ),
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              fillColor: FlutterFlowTheme.of(context).info,
                               elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).alternate,
+                              borderColor: FlutterFlowTheme.of(context).success,
                               borderWidth: 2.0,
                               borderRadius: 8.0,
                               margin: const EdgeInsetsDirectional.fromSTEB(

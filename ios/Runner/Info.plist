@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>pequeninos-app</string>
+	<string>Pequeninos App</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -53,11 +53,10 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-
 	<key>NSCameraUsageDescription</key>
-    <string>Por favor, conceder acesso ao recurso de camera</string>
+    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Por favor, conceder acesso à galeria de fotos</string>
+    <string>In order to upload data, this app requires permission to access the photo library.</string>
 	<key>NSCalendarsUsageDescription</key>
     <string>Por favor, conceder acesso ao recurso de calendário</string>
 

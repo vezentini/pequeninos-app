@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'class_upsert_model.dart';
 export 'class_upsert_model.dart';
 
@@ -34,11 +33,6 @@ class _ClassUpsertWidgetState extends State<ClassUpsertWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ClassUpsertModel());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Navigator.pop(context);
-    });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
@@ -129,7 +123,7 @@ class _ClassUpsertWidgetState extends State<ClassUpsertWidget> {
                               .headlineMedium
                               .override(
                                 fontFamily: 'Roboto',
-                                color: const Color(0xFF101518),
+                                color: FlutterFlowTheme.of(context).success,
                                 fontSize: 28.0,
                                 fontWeight: FontWeight.normal,
                               ),

@@ -1,4 +1,4 @@
-import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).alternate,
+        backgroundColor: FlutterFlowTheme.of(context).info,
         drawer: SizedBox(
           width: 250.0,
           child: Drawer(
@@ -71,8 +71,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).success,
-          iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).alternate),
+          iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).info),
           automaticallyImplyLeading: true,
           title: Align(
             alignment: const AlignmentDirectional(0.0, 0.0),

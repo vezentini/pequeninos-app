@@ -214,7 +214,10 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                         backgroundColor: Colors.transparent,
                         alignment: const AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
-                        child: const ClassUpsertWidget(),
+                        child: const ClassUpsertWidget(
+                          id: 'tert',
+                          name: 'qwe',
+                        ),
                       );
                     },
                   ).then((value) => setState(() {}));

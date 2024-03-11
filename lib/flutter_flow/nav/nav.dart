@@ -30,20 +30,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const HomePageWidget(),
+      errorBuilder: (context, state) => const LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const HomePageWidget(),
+          builder: (context, _) => const LoginPageWidget(),
         ),
         FFRoute(
-          name: 'Login',
-          path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          name: 'loginPage',
+          path: '/loginPage',
+          builder: (context, params) => const LoginPageWidget(),
         ),
         FFRoute(
-          name: 'HomePage',
+          name: 'homePage',
           path: '/homePage',
           builder: (context, params) => HomePageWidget(
             email: params.getParam('email', ParamType.String),
@@ -53,7 +53,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ClassesPage',
+          name: 'classesPage',
           path: '/classesPage',
           builder: (context, params) => ClassesPageWidget(
             email: params.getParam('email', ParamType.String),
@@ -63,7 +63,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'StudentsPage',
+          name: 'studentsPage',
           path: '/studentsPage',
           builder: (context, params) => StudentsPageWidget(
             email: params.getParam('email', ParamType.String),
@@ -73,9 +73,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'SummariesPage',
+          name: 'summariesPage',
           path: '/summariesPage',
           builder: (context, params) => SummariesPageWidget(
+            email: params.getParam('email', ParamType.String),
+            name: params.getParam('name', ParamType.String),
+            id: params.getParam('id', ParamType.String),
+            studentId: params.getParam('studentId', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'notificationsPage',
+          path: '/notificationsPage',
+          builder: (context, params) => NotificationsPageWidget(
+            email: params.getParam('email', ParamType.String),
+            name: params.getParam('name', ParamType.String),
+            id: params.getParam('id', ParamType.String),
+            studentId: params.getParam('studentId', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'accountsPage',
+          path: '/accountsPage',
+          builder: (context, params) => AccountsPageWidget(
             email: params.getParam('email', ParamType.String),
             name: params.getParam('name', ParamType.String),
             id: params.getParam('id', ParamType.String),

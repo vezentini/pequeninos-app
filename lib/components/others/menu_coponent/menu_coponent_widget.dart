@@ -57,7 +57,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).success,
         border: Border.all(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: FlutterFlowTheme.of(context).secondaryBackground,
         ),
       ),
       child: Padding(
@@ -89,8 +89,12 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: 'Nome',
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).titleMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: FlutterFlowTheme.of(context).info,
+                                    ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).labelMedium,
                                 enabledBorder: InputBorder.none,
@@ -140,10 +144,10 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
               color: Color(0xFFE5E7EB),
             ),
             Container(
-              width: 266.0,
-              height: 636.0,
+              width: double.infinity,
+              height: 497.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
+                color: FlutterFlowTheme.of(context).info,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -160,7 +164,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                         Navigator.pop(context);
 
                         context.pushNamed(
-                          'ClassesPage',
+                          'classesPage',
                           queryParameters: {
                             'email': serializeParam(
                               '',
@@ -187,12 +191,11 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                           border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
+                            color: FlutterFlowTheme.of(context).success,
                           ),
                         ),
                         child: Padding(
@@ -241,7 +244,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'StudentsPage',
+                          'accountsPage',
                           queryParameters: {
                             'email': serializeParam(
                               '',
@@ -270,9 +273,94 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.manage_accounts_rounded,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Usuários',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(
+                          'studentsPage',
+                          queryParameters: {
+                            'email': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'name': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'id': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'studentId': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
@@ -320,7 +408,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.pushNamed(
-                          'SummariesPage',
+                          'summariesPage',
                           queryParameters: {
                             'email': serializeParam(
                               '',
@@ -349,9 +437,12 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF1F4F8),
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
@@ -371,6 +462,88 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Resumo do dia',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(
+                          'notificationsPage',
+                          queryParameters: {
+                            'email': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'name': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'id': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                            'studentId': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.notifications_active,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Notificações',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

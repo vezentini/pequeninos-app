@@ -1,4 +1,4 @@
-import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/components/students/student_component/student_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,7 +50,7 @@ class _StudentsPageWidgetState extends State<StudentsPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).alternate,
+        backgroundColor: FlutterFlowTheme.of(context).info,
         drawer: SizedBox(
           width: 250.0,
           child: Drawer(
@@ -69,8 +69,7 @@ class _StudentsPageWidgetState extends State<StudentsPageWidget> {
         ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).success,
-          iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).alternate),
+          iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).info),
           automaticallyImplyLeading: true,
           title: Align(
             alignment: const AlignmentDirectional(0.0, 0.0),

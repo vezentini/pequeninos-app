@@ -1,31 +1,32 @@
+import '/components/accounts/accounts_component/accounts_component_widget.dart';
 import '/components/others/menu_coponent/menu_coponent_widget.dart';
-import '/components/students/student_component/student_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'students_page_widget.dart' show StudentsPageWidget;
+import 'accounts_page_widget.dart' show AccountsPageWidget;
 import 'package:flutter/material.dart';
 
-class StudentsPageModel extends FlutterFlowModel<StudentsPageWidget> {
+class AccountsPageModel extends FlutterFlowModel<AccountsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Model for menuCoponent component.
   late MenuCoponentModel menuCoponentModel;
-  // Model for studentComponent component.
-  late StudentComponentModel studentComponentModel;
+  // Model for accountsComponent component.
+  late AccountsComponentModel accountsComponentModel;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
     menuCoponentModel = createModel(context, () => MenuCoponentModel());
-    studentComponentModel = createModel(context, () => StudentComponentModel());
+    accountsComponentModel =
+        createModel(context, () => AccountsComponentModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     menuCoponentModel.dispose();
-    studentComponentModel.dispose();
+    accountsComponentModel.dispose();
   }
 
   /// Action blocks are added here.

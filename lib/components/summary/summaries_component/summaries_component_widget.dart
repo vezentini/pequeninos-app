@@ -46,14 +46,17 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: FlutterFlowTheme.of(context).info,
+            border: Border.all(
+              color: FlutterFlowTheme.of(context).success,
+            ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               FlutterFlowCalendar(
                 color: FlutterFlowTheme.of(context).success,
-                iconColor: FlutterFlowTheme.of(context).primaryBackground,
+                iconColor: FlutterFlowTheme.of(context).info,
                 weekFormat: true,
                 weekStartsMonday: true,
                 initialDate: FFAppState().summaryDate,

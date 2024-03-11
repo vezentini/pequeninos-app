@@ -1,4 +1,4 @@
-import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for MenuCoponent component.
+  // Model for menuCoponent component.
   late MenuCoponentModel menuCoponentModel;
 
   /// Initialization and disposal methods.

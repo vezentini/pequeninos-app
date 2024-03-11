@@ -1,4 +1,4 @@
-import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/components/summary/summaries_component/summaries_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'summaries_page_widget.dart' show SummariesPageWidget;
@@ -8,9 +8,9 @@ class SummariesPageModel extends FlutterFlowModel<SummariesPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for MenuCoponent component.
+  // Model for menuCoponent component.
   late MenuCoponentModel menuCoponentModel;
-  // Model for SummariesComponent component.
+  // Model for summariesComponent component.
   late SummariesComponentModel summariesComponentModel;
 
   /// Initialization and disposal methods.

@@ -1,23 +1,23 @@
-import '/components/reset_password_solicited/reset_password_solicited_widget.dart';
+import '/components/others/reset_password_solicited/reset_password_solicited_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'login_model.dart';
-export 'login_model.dart';
+import 'login_page_model.dart';
+export 'login_page_model.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({super.key});
+class LoginPageWidget extends StatefulWidget {
+  const LoginPageWidget({super.key});
 
   @override
-  State<LoginWidget> createState() => _LoginWidgetState();
+  State<LoginPageWidget> createState() => _LoginPageWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget>
+class _LoginPageWidgetState extends State<LoginPageWidget>
     with TickerProviderStateMixin {
-  late LoginModel _model;
+  late LoginPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -74,7 +74,7 @@ class _LoginWidgetState extends State<LoginWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LoginModel());
+    _model = createModel(context, () => LoginPageModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
@@ -98,7 +98,7 @@ class _LoginWidgetState extends State<LoginWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).info,
         body: SafeArea(
           top: true,
           child: Column(
@@ -351,7 +351,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       context.pushNamed(
-                                        'HomePage',
+                                        'homePage',
                                         queryParameters: {
                                           'email': serializeParam(
                                             'vezentini@hotmail.com',
