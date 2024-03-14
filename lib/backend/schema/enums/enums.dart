@@ -6,6 +6,11 @@ enum StackConsumn {
   METADE,
 }
 
+enum Profile {
+  ADMIN,
+  PARENTAL,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -19,6 +24,8 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (StackConsumn):
       return StackConsumn.values.deserialize(value) as T?;
+    case (Profile):
+      return Profile.values.deserialize(value) as T?;
     default:
       return null;
   }

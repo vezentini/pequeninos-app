@@ -1,12 +1,11 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/others/reset_password_solicited/reset_password_solicited_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
@@ -40,15 +39,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 80.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 80.0),
+          end: const Offset(0.0, 0.0),
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 400.ms,
-          begin: Offset(0.8, 0.8),
-          end: Offset(1.0, 1.0),
+          begin: const Offset(0.8, 0.8),
+          end: const Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -67,8 +66,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 20.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -95,6 +94,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -108,7 +109,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 16.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 16.0),
                 child: Text(
                   'Pequeninos App',
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
@@ -120,21 +121,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                     child: Container(
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 0.8,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 530.0,
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 16.0, 24.0, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
@@ -149,7 +150,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 Container(
                                   width: 230.0,
                                   height: 16.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                 ),
@@ -167,7 +168,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 24.0),
                                 child: Text(
                                   'Se você busca estreitar os laços entre a escola e seu pequeno pedaço de céu, é aqui! ',
@@ -176,22 +177,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF57636C),
+                                        color: const Color(0xFF57636C),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.emailAddressController,
                                     focusNode: _model.emailAddressFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.email],
+                                    autofillHints: const [AutofillHints.email],
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Email',
@@ -199,12 +200,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           .labelLarge
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF57636C),
+                                            color: const Color(0xFF57636C),
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFE0E3E7),
                                           width: 2.0,
                                         ),
@@ -212,7 +213,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF4B39EF),
                                           width: 2.0,
                                         ),
@@ -220,7 +221,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFE0E3E7),
                                           width: 2.0,
                                         ),
@@ -228,7 +229,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFE0E3E7),
                                           width: 2.0,
                                         ),
@@ -238,19 +239,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               24.0, 24.0, 0.0, 24.0),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF101213),
+                                          color: const Color(0xFF101213),
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     keyboardType: TextInputType.emailAddress,
-                                    cursorColor: Color(0xFF4B39EF),
+                                    cursorColor: const Color(0xFF4B39EF),
                                     validator: _model
                                         .emailAddressControllerValidator
                                         .asValidator(context),
@@ -258,15 +259,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller: _model.passwordController,
                                     focusNode: _model.passwordFocusNode,
                                     autofocus: true,
-                                    autofillHints: [AutofillHints.password],
+                                    autofillHints: const [AutofillHints.password],
                                     obscureText: !_model.passwordVisibility,
                                     decoration: InputDecoration(
                                       labelText: 'Password',
@@ -274,12 +275,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           .labelLarge
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF57636C),
+                                            color: const Color(0xFF57636C),
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFE0E3E7),
                                           width: 2.0,
                                         ),
@@ -287,7 +288,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF4B39EF),
                                           width: 2.0,
                                         ),
@@ -295,7 +296,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFFF5963),
                                           width: 2.0,
                                         ),
@@ -303,7 +304,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFFFF5963),
                                           width: 2.0,
                                         ),
@@ -313,7 +314,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       filled: true,
                                       fillColor: Colors.white,
                                       contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               24.0, 24.0, 0.0, 24.0),
                                       suffixIcon: InkWell(
                                         onTap: () => setState(
@@ -326,7 +327,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           _model.passwordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
-                                          color: Color(0xFF57636C),
+                                          color: const Color(0xFF57636C),
                                           size: 24.0,
                                         ),
                                       ),
@@ -335,11 +336,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         .bodyLarge
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF101213),
+                                          color: const Color(0xFF101213),
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    cursorColor: Color(0xFF4B39EF),
+                                    cursorColor: const Color(0xFF4B39EF),
                                     validator: _model
                                         .passwordControllerValidator
                                         .asValidator(context),
@@ -347,42 +348,114 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed(
-                                        'homePage',
-                                        queryParameters: {
-                                          'email': serializeParam(
-                                            'vezentini@hotmail.com',
-                                            ParamType.String,
-                                          ),
-                                          'name': serializeParam(
-                                            'Gustavo Vezentini',
-                                            ParamType.String,
-                                          ),
-                                          'id': serializeParam(
-                                            '6d810426-d340-4471-9810-7a4383d06767',
-                                            ParamType.String,
-                                          ),
-                                          'studentId': serializeParam(
-                                            '',
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
+                                      _model.logiResultAPi =
+                                          await AccountLoginCall.call(
+                                        email:
+                                            _model.emailAddressController.text,
+                                        password:
+                                            _model.passwordController.text,
                                       );
+                                      if (true ==
+                                          AccountLoginCall.success(
+                                            (_model.logiResultAPi?.jsonBody ??
+                                                ''),
+                                          )) {
+                                        context.pushNamed(
+                                          'homePage',
+                                          queryParameters: {
+                                            'id': serializeParam(
+                                              AccountLoginCall.id(
+                                                (_model.logiResultAPi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'name': serializeParam(
+                                              AccountLoginCall.name(
+                                                (_model.logiResultAPi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'email': serializeParam(
+                                              AccountLoginCall.email(
+                                                (_model.logiResultAPi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'studentsId': serializeParam(
+                                              AccountLoginCall.studentsId(
+                                                (_model.logiResultAPi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                              true,
+                                            ),
+                                            'profile': serializeParam(
+                                              AccountLoginCall.profile(
+                                                (_model.logiResultAPi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
+                                        FFAppState().update(() {
+                                          FFAppState().email =
+                                              FFAppState().email;
+                                          FFAppState().name = FFAppState().name;
+                                          FFAppState().id = FFAppState().id;
+                                          FFAppState().profile =
+                                              FFAppState().profile;
+                                          FFAppState().studentsId = FFAppState()
+                                              .studentsId
+                                              .toList()
+                                              .cast<String>();
+                                        });
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Falha no login!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                          ),
+                                        );
+                                      }
+
+                                      setState(() {});
                                     },
                                     text: 'Entrar',
                                     options: FFButtonOptions(
                                       width: 230.0,
                                       height: 52.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).success,
@@ -395,7 +468,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             fontWeight: FontWeight.w500,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -405,10 +478,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Builder(
                                   builder: (context) => Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -421,7 +494,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               backgroundColor:
                                                   Colors.transparent,
                                               alignment:
-                                                  AlignmentDirectional(0.0, 0.0)
+                                                  const AlignmentDirectional(0.0, 0.0)
                                                       .resolve(
                                                           Directionality.of(
                                                               context)),
@@ -434,7 +507,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     : FocusScope.of(context)
                                                         .unfocus(),
                                                 child:
-                                                    ResetPasswordSolicitedWidget(),
+                                                    const ResetPasswordSolicitedWidget(),
                                               ),
                                             );
                                           },
@@ -443,28 +516,28 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       text: 'Esqueci a senha.',
                                       options: FFButtonOptions(
                                         height: 44.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             32.0, 0.0, 32.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: Colors.white,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: Color(0xFF101213),
+                                              color: const Color(0xFF101213),
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Colors.white,
                                           width: 2.0,
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(40.0),
-                                        hoverColor: Color(0xFFF1F4F8),
+                                        hoverColor: const Color(0xFFF1F4F8),
                                       ),
                                     ),
                                   ),

@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'student_component_widget.dart' show StudentComponentWidget;
+import 'notification_component_widget.dart' show NotificationComponentWidget;
 import 'package:flutter/material.dart';
 
-class StudentComponentModel extends FlutterFlowModel<StudentComponentWidget> {
+class NotificationComponentModel
+    extends FlutterFlowModel<NotificationComponentWidget> {
   /// Initialization and disposal methods.
 
   @override

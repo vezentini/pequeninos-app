@@ -2,10 +2,7 @@ import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/components/summary/summaries_component/summaries_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'summaries_page_model.dart';
 export 'summaries_page_model.dart';
 
@@ -15,13 +12,15 @@ class SummariesPageWidget extends StatefulWidget {
     this.email,
     this.name,
     required this.id,
-    required this.studentId,
+    required this.studenstId,
+    required this.profile,
   });
 
   final String? email;
   final String? name;
   final String? id;
-  final String? studentId;
+  final List<String>? studenstId;
+  final String? profile;
 
   @override
   State<SummariesPageWidget> createState() => _SummariesPageWidgetState();
@@ -54,7 +53,7 @@ class _SummariesPageWidgetState extends State<SummariesPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).info,
-        drawer: Container(
+        drawer: SizedBox(
           width: 250.0,
           child: Drawer(
             elevation: 1.0,
@@ -65,7 +64,8 @@ class _SummariesPageWidgetState extends State<SummariesPageWidget> {
                 id: widget.id!,
                 name: widget.name!,
                 email: widget.email!,
-                studentId: widget.studentId!,
+                studentsId: widget.studenstId!,
+                profile: widget.profile,
               ),
             ),
           ),
@@ -75,9 +75,9 @@ class _SummariesPageWidgetState extends State<SummariesPageWidget> {
           iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).info),
           automaticallyImplyLeading: true,
           title: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
               child: Text(
                 'Pequeninos App',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -88,7 +88,7 @@ class _SummariesPageWidgetState extends State<SummariesPageWidget> {
               ),
             ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 1.0,
         ),
@@ -97,7 +97,9 @@ class _SummariesPageWidgetState extends State<SummariesPageWidget> {
           child: wrapWithModel(
             model: _model.summariesComponentModel,
             updateCallback: () => setState(() {}),
-            child: SummariesComponentWidget(),
+            child: SummariesComponentWidget(
+              profile: widget.profile!,
+            ),
           ),
         ),
       ),

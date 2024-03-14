@@ -2,10 +2,7 @@ import '/components/classes/classes_component/classes_component_widget.dart';
 import '/components/others/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'classes_page_model.dart';
 export 'classes_page_model.dart';
 
@@ -15,13 +12,15 @@ class ClassesPageWidget extends StatefulWidget {
     this.email,
     this.name,
     required this.id,
-    required this.studentId,
+    required this.studentsId,
+    required this.profile,
   });
 
   final String? email;
   final String? name;
   final String? id;
-  final String? studentId;
+  final List<String>? studentsId;
+  final String? profile;
 
   @override
   State<ClassesPageWidget> createState() => _ClassesPageWidgetState();
@@ -54,7 +53,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).alternate,
-        drawer: Container(
+        drawer: SizedBox(
           width: 250.0,
           child: Drawer(
             elevation: 1.0,
@@ -65,7 +64,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
                 id: widget.id!,
                 name: widget.name!,
                 email: widget.email!,
-                studentId: widget.studentId!,
+                studentsId: widget.studentsId!,
+                profile: widget.profile,
               ),
             ),
           ),
@@ -75,9 +75,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
           iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).info),
           automaticallyImplyLeading: true,
           title: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
               child: Text(
                 'Pequeninos App',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -88,7 +88,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
               ),
             ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 1.0,
         ),
@@ -97,7 +97,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
           child: wrapWithModel(
             model: _model.classesComponentModel,
             updateCallback: () => setState(() {}),
-            child: ClassesComponentWidget(),
+            child: const ClassesComponentWidget(),
           ),
         ),
       ),

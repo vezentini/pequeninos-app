@@ -2,15 +2,17 @@ import '/components/summary/summary_upsert/summary_upsert_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'summaries_component_model.dart';
 export 'summaries_component_model.dart';
 
 class SummariesComponentWidget extends StatefulWidget {
-  const SummariesComponentWidget({super.key});
+  const SummariesComponentWidget({
+    super.key,
+    required this.profile,
+  });
+
+  final String? profile;
 
   @override
   State<SummariesComponentWidget> createState() =>
@@ -41,8 +43,6 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       children: [
         Container(
@@ -60,7 +60,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
                 iconColor: FlutterFlowTheme.of(context).info,
                 weekFormat: true,
                 weekStartsMonday: true,
-                initialDate: FFAppState().summaryDate,
+                initialDate: getCurrentTimestamp,
                 onChange: (DateTimeRange? newSelectedDate) async {
                   if (_model.calendarSelectedDay == newSelectedDate) {
                     return;
@@ -99,42 +99,41 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
             ],
           ),
         ),
-        Align(
-          alignment: AlignmentDirectional(1.0, 1.0),
-          child: Builder(
-            builder: (context) => Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-              child: FloatingActionButton(
-                onPressed: () async {
-                  await showDialog(
-                    context: context,
-                    builder: (dialogContext) {
-                      return Dialog(
-                        elevation: 0,
-                        insetPadding: EdgeInsets.zero,
-                        backgroundColor: Colors.transparent,
-                        alignment: AlignmentDirectional(0.0, 0.0)
-                            .resolve(Directionality.of(context)),
-                        child: SummaryUpsertWidget(
-                          studentId: '',
-                          date: DateTime.fromMicrosecondsSinceEpoch(
-                              random_data.randomDate().microsecondsSinceEpoch),
-                        ),
-                      );
-                    },
-                  ).then((value) => setState(() {}));
-                },
-                backgroundColor: FlutterFlowTheme.of(context).success,
-                elevation: 8.0,
-                child: Icon(
-                  Icons.add,
-                  color: FlutterFlowTheme.of(context).info,
-                  size: 24.0,
+        if (widget.profile == 'ADMIN')
+          Align(
+            alignment: const AlignmentDirectional(1.0, 1.0),
+            child: Builder(
+              builder: (context) => Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                child: FloatingActionButton(
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: const AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: SummaryUpsertWidget(
+                            date: _model.calendarSelectedDay!.start,
+                          ),
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+                  },
+                  backgroundColor: FlutterFlowTheme.of(context).success,
+                  elevation: 8.0,
+                  child: Icon(
+                    Icons.add,
+                    color: FlutterFlowTheme.of(context).info,
+                    size: 24.0,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
       ],
     );
   }
