@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -17,7 +22,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   Future initializePersistedState() async {
-    secureStorage = const FlutterSecureStorage();
+    secureStorage = FlutterSecureStorage();
     await _safeInitAsync(() async {
       _email = await secureStorage.getString('ff_email') ?? _email;
     });
@@ -25,14 +30,7 @@ class FFAppState extends ChangeNotifier {
       _name = await secureStorage.getString('ff_name') ?? _name;
     });
     await _safeInitAsync(() async {
-      _id = await secureStorage.getString('ff_id') ?? _id;
-    });
-    await _safeInitAsync(() async {
       _profile = await secureStorage.getString('ff_profile') ?? _profile;
-    });
-    await _safeInitAsync(() async {
-      _studentsId =
-          await secureStorage.getStringList('ff_studentsId') ?? _studentsId;
     });
   }
 
@@ -45,9 +43,9 @@ class FFAppState extends ChangeNotifier {
 
   String _email = '';
   String get email => _email;
-  set email(String value) {
-    _email = value;
-    secureStorage.setString('ff_email', value);
+  set email(String _value) {
+    _email = _value;
+    secureStorage.setString('ff_email', _value);
   }
 
   void deleteEmail() {
@@ -56,80 +54,65 @@ class FFAppState extends ChangeNotifier {
 
   String _name = '';
   String get name => _name;
-  set name(String value) {
-    _name = value;
-    secureStorage.setString('ff_name', value);
+  set name(String _value) {
+    _name = _value;
+    secureStorage.setString('ff_name', _value);
   }
 
   void deleteName() {
     secureStorage.delete(key: 'ff_name');
   }
 
-  String _id = '';
-  String get id => _id;
-  set id(String value) {
-    _id = value;
-    secureStorage.setString('ff_id', value);
-  }
-
-  void deleteId() {
-    secureStorage.delete(key: 'ff_id');
-  }
-
-  DateTime? _summaryDate = DateTime.fromMillisecondsSinceEpoch(1710180840000);
-  DateTime? get summaryDate => _summaryDate;
-  set summaryDate(DateTime? value) {
-    _summaryDate = value;
-  }
-
   String _profile = '';
   String get profile => _profile;
-  set profile(String value) {
-    _profile = value;
-    secureStorage.setString('ff_profile', value);
+  set profile(String _value) {
+    _profile = _value;
+    secureStorage.setString('ff_profile', _value);
   }
 
   void deleteProfile() {
     secureStorage.delete(key: 'ff_profile');
   }
 
-  List<String> _studentsId = [];
-  List<String> get studentsId => _studentsId;
-  set studentsId(List<String> value) {
-    _studentsId = value;
-    secureStorage.setStringList('ff_studentsId', value);
+  DateTime? _date = DateTime.fromMillisecondsSinceEpoch(1710795000000);
+  DateTime? get date => _date;
+  set date(DateTime? _value) {
+    _date = _value;
   }
 
-  void deleteStudentsId() {
-    secureStorage.delete(key: 'ff_studentsId');
+  int _id = 0;
+  int get id => _id;
+  set id(int _value) {
+    _id = _value;
   }
 
-  void addToStudentsId(String value) {
-    _studentsId.add(value);
-    secureStorage.setStringList('ff_studentsId', _studentsId);
+  List<String> _studentIds = [];
+  List<String> get studentIds => _studentIds;
+  set studentIds(List<String> _value) {
+    _studentIds = _value;
   }
 
-  void removeFromStudentsId(String value) {
-    _studentsId.remove(value);
-    secureStorage.setStringList('ff_studentsId', _studentsId);
+  void addToStudentIds(String _value) {
+    _studentIds.add(_value);
   }
 
-  void removeAtIndexFromStudentsId(int index) {
-    _studentsId.removeAt(index);
-    secureStorage.setStringList('ff_studentsId', _studentsId);
+  void removeFromStudentIds(String _value) {
+    _studentIds.remove(_value);
   }
 
-  void updateStudentsIdAtIndex(
-    int index,
+  void removeAtIndexFromStudentIds(int _index) {
+    _studentIds.removeAt(_index);
+  }
+
+  void updateStudentIdsAtIndex(
+    int _index,
     String Function(String) updateFn,
   ) {
-    _studentsId[index] = updateFn(_studentsId[index]);
-    secureStorage.setStringList('ff_studentsId', _studentsId);
+    _studentIds[_index] = updateFn(_studentIds[_index]);
   }
 
-  void insertAtIndexInStudentsId(int index, String value) {
-    _studentsId.insert(index, value);
-    secureStorage.setStringList('ff_studentsId', _studentsId);
+  void insertAtIndexInStudentIds(int _index, String _value) {
+    _studentIds.insert(_index, _value);
   }
 }
 
@@ -178,12 +161,12 @@ extension FlutterSecureStorageExtensions on FlutterSecureStorage {
         if (result == null || result.isEmpty) {
           return null;
         }
-        return const CsvToListConverter()
+        return CsvToListConverter()
             .convert(result)
             .first
             .map((e) => e.toString())
             .toList();
       });
   Future<void> setStringList(String key, List<String> value) async =>
-      await writeSync(key: key, value: const ListToCsvConverter().convert([value]));
+      await writeSync(key: key, value: ListToCsvConverter().convert([value]));
 }

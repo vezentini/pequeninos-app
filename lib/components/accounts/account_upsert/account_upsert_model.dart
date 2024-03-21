@@ -1,57 +1,80 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/enums/enums.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'account_upsert_widget.dart' show AccountUpsertWidget;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
 
 class AccountUpsertModel extends FlutterFlowModel<AccountUpsertWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController3;
-  final textFieldMask3 = MaskTextInputFormatter(mask: '###.###.###-##');
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController4;
-  final textFieldMask4 = MaskTextInputFormatter(mask: '(##) #####-####');
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController;
+  // State field(s) for nameTextField widget.
+  FocusNode? nameTextFieldFocusNode;
+  TextEditingController? nameTextFieldController;
+  String? Function(BuildContext, String?)? nameTextFieldControllerValidator;
+  // State field(s) for emailTextField widget.
+  FocusNode? emailTextFieldFocusNode;
+  TextEditingController? emailTextFieldController;
+  String? Function(BuildContext, String?)? emailTextFieldControllerValidator;
+  // State field(s) for documentTextField widget.
+  FocusNode? documentTextFieldFocusNode;
+  TextEditingController? documentTextFieldController;
+  final documentTextFieldMask = MaskTextInputFormatter(mask: '###.###.###-##');
+  String? Function(BuildContext, String?)? documentTextFieldControllerValidator;
+  // State field(s) for phoneTextField widget.
+  FocusNode? phoneTextFieldFocusNode;
+  TextEditingController? phoneTextFieldController;
+  final phoneTextFieldMask = MaskTextInputFormatter(mask: '(##) #####-####');
+  String? Function(BuildContext, String?)? phoneTextFieldControllerValidator;
+  // State field(s) for passwordTextField widget.
+  FocusNode? passwordTextFieldFocusNode;
+  TextEditingController? passwordTextFieldController;
+  late bool passwordTextFieldVisibility;
+  String? Function(BuildContext, String?)? passwordTextFieldControllerValidator;
+  // State field(s) for profileRadionButton widget.
+  FormFieldController<String>? profileRadionButtonValueController;
+  // Stores action output result for [Backend Call - API (Account Upsert)] action in Button widget.
+  ApiCallResponse? accountUpertResultApi;
+  // Stores action output result for [Backend Call - API (Delete Account)] action in Button widget.
+  ApiCallResponse? deleteAccountApiResult;
 
   /// Initialization and disposal methods.
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    passwordTextFieldVisibility = false;
+  }
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    nameTextFieldFocusNode?.dispose();
+    nameTextFieldController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    emailTextFieldFocusNode?.dispose();
+    emailTextFieldController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController3?.dispose();
+    documentTextFieldFocusNode?.dispose();
+    documentTextFieldController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController4?.dispose();
+    phoneTextFieldFocusNode?.dispose();
+    phoneTextFieldController?.dispose();
+
+    passwordTextFieldFocusNode?.dispose();
+    passwordTextFieldController?.dispose();
   }
 
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
 
-  String? get radioButtonValue => radioButtonValueController?.value;
+  String? get profileRadionButtonValue =>
+      profileRadionButtonValueController?.value;
 }

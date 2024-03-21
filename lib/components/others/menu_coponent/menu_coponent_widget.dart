@@ -1,25 +1,16 @@
+import '/backend/api_requests/api_calls.dart';
+import '/components/accounts/account_upsert/account_upsert_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'menu_coponent_model.dart';
 export 'menu_coponent_model.dart';
 
 class MenuCoponentWidget extends StatefulWidget {
-  const MenuCoponentWidget({
-    super.key,
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.studentsId,
-    this.profile,
-  });
-
-  final String? id;
-  final String? name;
-  final String? email;
-  final List<String>? studentsId;
-  final String? profile;
+  const MenuCoponentWidget({super.key});
 
   @override
   State<MenuCoponentWidget> createState() => _MenuCoponentWidgetState();
@@ -60,33 +51,30 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: Text(
-                              valueOrDefault<String>(
-                                widget.name,
-                                '1',
-                              ),
+                              FFAppState().name,
                               style: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
@@ -97,13 +85,10 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: Text(
-                              valueOrDefault<String>(
-                                widget.email,
-                                '1',
-                              ),
+                              FFAppState().email,
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ),
@@ -111,476 +96,565 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                       ),
                     ),
                   ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Builder(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            _model.findOneAccountApiResult =
+                                await FindOneAccountCall.call(
+                              id: FFAppState().id,
+                            );
+                            if ((_model.findOneAccountApiResult?.succeeded ??
+                                true)) {
+                              setState(() {
+                                FFAppState().studentIds =
+                                    FindOneAccountCall.studentIds(
+                                  (_model.findOneAccountApiResult?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                              });
+                              await showDialog(
+                                context: context,
+                                builder: (dialogContext) {
+                                  return Dialog(
+                                    elevation: 0,
+                                    insetPadding: EdgeInsets.zero,
+                                    backgroundColor: Colors.transparent,
+                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    child: AccountUpsertWidget(
+                                      id: FindOneAccountCall.id(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      name: FindOneAccountCall.name(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      email: FindOneAccountCall.email(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      document: FindOneAccountCall.document(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      phone: FindOneAccountCall.phone(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      profile: FindOneAccountCall.profile(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      ),
+                                      studentIds: FindOneAccountCall.studentIds(
+                                        (_model.findOneAccountApiResult
+                                                ?.jsonBody ??
+                                            ''),
+                                      )!,
+                                      editProfile: true,
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            }
+
+                            setState(() {});
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.solidEdit,
+                            color: FlutterFlowTheme.of(context).info,
+                            size: 24.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-            const Divider(
+            Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
             ),
             Container(
               width: double.infinity,
-              height: 400.0,
+              height: 380.0,
+              constraints: BoxConstraints(
+                minWidth: double.infinity,
+                minHeight: 350.0,
+                maxWidth: double.infinity,
+                maxHeight: 400.0,
+              ),
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).info,
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (widget.profile == 'ADMIN')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed(
-                              'classesPage',
-                              queryParameters: {
-                                'email': serializeParam(
-                                  widget.email,
-                                  ParamType.String,
-                                ),
-                                'name': serializeParam(
-                                  widget.name,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  FFAppState().id,
-                                  ParamType.String,
-                                ),
-                                'studentsId': serializeParam(
-                                  widget.studentsId,
-                                  ParamType.String,
-                                  true,
-                                ),
-                                'profile': serializeParam(
-                                  widget.profile,
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('homePage');
 
-                            Navigator.pop(context);
-                          },
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeInOut,
-                            width: double.infinity,
-                            height: 44.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).info,
-                              borderRadius: BorderRadius.circular(12.0),
-                              shape: BoxShape.rectangle,
-                              border: Border.all(
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.add_to_home_screen,
                                 color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.room_preferences,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 24.0,
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Página Inicial',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Turmas',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Plus Jakarta Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .success,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (FFAppState().profile == 'ADMIN')
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('classesPage');
+
+                          Navigator.pop(context);
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          width: double.infinity,
+                          height: 44.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).info,
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).success,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.room_preferences,
+                                  color: FlutterFlowTheme.of(context).success,
+                                  size: 24.0,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Turmas',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .success,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
-                    if (widget.profile == 'ADMIN')
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 10.0, 20.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed(
-                              'accountsPage',
-                              queryParameters: {
-                                'email': serializeParam(
-                                  widget.email,
-                                  ParamType.String,
-                                ),
-                                'name': serializeParam(
-                                  widget.name,
-                                  ParamType.String,
-                                ),
-                                'id': serializeParam(
-                                  widget.id,
-                                  ParamType.String,
-                                ),
-                                'studentsId': serializeParam(
-                                  widget.studentsId,
-                                  ParamType.String,
-                                  true,
-                                ),
-                                'profile': serializeParam(
-                                  widget.profile,
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                            );
+                    ),
+                  if (FFAppState().profile == 'ADMIN')
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed('accountsPage');
 
-                            Navigator.pop(context);
-                          },
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.easeInOut,
-                            width: double.infinity,
-                            height: 44.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).info,
-                              borderRadius: BorderRadius.circular(12.0),
-                              shape: BoxShape.rectangle,
-                              border: Border.all(
+                          Navigator.pop(context);
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          width: double.infinity,
+                          height: 44.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).info,
+                            borderRadius: BorderRadius.circular(12.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).success,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.manage_accounts_rounded,
+                                  color: FlutterFlowTheme.of(context).success,
+                                  size: 24.0,
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Usuários',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .success,
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('studentsPage');
+
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.work,
                                 color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.manage_accounts_rounded,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 24.0,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Usuários',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Plus Jakarta Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .success,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'studentsPage',
-                            queryParameters: {
-                              'email': serializeParam(
-                                widget.email,
-                                ParamType.String,
-                              ),
-                              'name': serializeParam(
-                                widget.name,
-                                ParamType.String,
-                              ),
-                              'id': serializeParam(
-                                widget.id,
-                                ParamType.String,
-                              ),
-                              'studentsId': serializeParam(
-                                widget.studentsId,
-                                ParamType.String,
-                                true,
-                              ),
-                              'profile': serializeParam(
-                                widget.profile,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-
-                          Navigator.pop(context);
-                        },
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.easeInOut,
-                          width: double.infinity,
-                          height: 44.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).info,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).success,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.work,
-                                  color: FlutterFlowTheme.of(context).success,
-                                  size: 24.0,
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Alunos',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Alunos',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'summariesPage',
-                            queryParameters: {
-                              'email': serializeParam(
-                                widget.email,
-                                ParamType.String,
-                              ),
-                              'name': serializeParam(
-                                widget.name,
-                                ParamType.String,
-                              ),
-                              'id': serializeParam(
-                                widget.id,
-                                ParamType.String,
-                              ),
-                              'studenstId': serializeParam(
-                                widget.studentsId,
-                                ParamType.String,
-                                true,
-                              ),
-                              'profile': serializeParam(
-                                widget.profile,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('summariesPage');
 
-                          Navigator.pop(context);
-                        },
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.easeInOut,
-                          width: double.infinity,
-                          height: 44.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).info,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).success,
-                            ),
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.rate_review_sharp,
-                                  color: FlutterFlowTheme.of(context).success,
-                                  size: 24.0,
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Resumo do dia',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.rate_review_sharp,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Resumo do dia',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'notificationsPage',
-                            queryParameters: {
-                              'email': serializeParam(
-                                widget.email,
-                                ParamType.String,
-                              ),
-                              'name': serializeParam(
-                                widget.name,
-                                ParamType.String,
-                              ),
-                              'id': serializeParam(
-                                widget.id,
-                                ParamType.String,
-                              ),
-                              'studentsId': serializeParam(
-                                widget.studentsId,
-                                ParamType.String,
-                                true,
-                              ),
-                              'profile': serializeParam(
-                                widget.profile,
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('notificationsPage');
 
-                          Navigator.pop(context);
-                        },
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.easeInOut,
-                          width: double.infinity,
-                          height: 44.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).info,
-                            borderRadius: BorderRadius.circular(12.0),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).success,
-                            ),
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.notifications_active,
-                                  color: FlutterFlowTheme.of(context).success,
-                                  size: 24.0,
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Notificações',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.notifications_active,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Notificações',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 10.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('loginPage');
+
+                        Navigator.pop(context);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        width: double.infinity,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).info,
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).success,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.change_circle,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 24.0,
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Sair',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Plus Jakarta Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Divider(
+            Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,

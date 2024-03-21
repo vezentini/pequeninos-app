@@ -1,11 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
 
 import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -30,89 +39,47 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const LoginPageWidget(),
+      errorBuilder: (context, state) => LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const LoginPageWidget(),
+          builder: (context, _) => LoginPageWidget(),
         ),
         FFRoute(
           name: 'loginPage',
           path: '/loginPage',
-          builder: (context, params) => const LoginPageWidget(),
+          builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
           name: 'homePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(
-            id: params.getParam('id', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            email: params.getParam('email', ParamType.String),
-            studentsId:
-                params.getParam<String>('studentsId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: 'classesPage',
           path: '/classesPage',
-          builder: (context, params) => ClassesPageWidget(
-            email: params.getParam('email', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            id: params.getParam('id', ParamType.String),
-            studentsId:
-                params.getParam<String>('studentsId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => ClassesPageWidget(),
         ),
         FFRoute(
           name: 'studentsPage',
           path: '/studentsPage',
-          builder: (context, params) => StudentsPageWidget(
-            email: params.getParam('email', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            id: params.getParam('id', ParamType.String),
-            studentsId:
-                params.getParam<String>('studentsId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => StudentsPageWidget(),
         ),
         FFRoute(
           name: 'summariesPage',
           path: '/summariesPage',
-          builder: (context, params) => SummariesPageWidget(
-            email: params.getParam('email', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            id: params.getParam('id', ParamType.String),
-            studenstId:
-                params.getParam<String>('studenstId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => SummariesPageWidget(),
         ),
         FFRoute(
           name: 'notificationsPage',
           path: '/notificationsPage',
-          builder: (context, params) => NotificationsPageWidget(
-            email: params.getParam('email', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            id: params.getParam('id', ParamType.String),
-            studentsId:
-                params.getParam<String>('studentsId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => NotificationsPageWidget(),
         ),
         FFRoute(
           name: 'accountsPage',
           path: '/accountsPage',
-          builder: (context, params) => AccountsPageWidget(
-            email: params.getParam('email', ParamType.String),
-            name: params.getParam('name', ParamType.String),
-            id: params.getParam('id', ParamType.String),
-            studentsId:
-                params.getParam<String>('studentsId', ParamType.String, true),
-            profile: params.getParam('profile', ParamType.String),
-          ),
+          builder: (context, params) => AccountsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -274,7 +241,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

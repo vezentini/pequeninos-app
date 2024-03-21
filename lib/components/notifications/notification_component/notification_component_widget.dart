@@ -3,16 +3,13 @@ import '/components/notifications/notifications_upsert/notifications_upsert_widg
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'notification_component_model.dart';
 export 'notification_component_model.dart';
 
 class NotificationComponentWidget extends StatefulWidget {
-  const NotificationComponentWidget({
-    super.key,
-    required this.profile,
-  });
-
-  final String? profile;
+  const NotificationComponentWidget({super.key});
 
   @override
   State<NotificationComponentWidget> createState() =>
@@ -44,13 +41,15 @@ class _NotificationComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    context.watch<FFAppState>();
+
+    return Container(
       width: double.infinity,
       height: double.infinity,
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: Container(
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).info,
@@ -58,7 +57,7 @@ class _NotificationComponentWidgetState
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: FindNotificationsCall.call(),
                       builder: (context, snapshot) {
@@ -91,7 +90,7 @@ class _NotificationComponentWidgetState
                               itemBuilder: (context, classesIndex) {
                                 final classesItem = classes[classesIndex];
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 10.0, 16.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
@@ -102,7 +101,7 @@ class _NotificationComponentWidgetState
                                           blurRadius: 3.0,
                                           color: FlutterFlowTheme.of(context)
                                               .success,
-                                          offset: const Offset(0.0, 1.0),
+                                          offset: Offset(0.0, 1.0),
                                         )
                                       ],
                                       borderRadius: BorderRadius.circular(12.0),
@@ -113,7 +112,7 @@ class _NotificationComponentWidgetState
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
+                                      padding: EdgeInsets.all(12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
@@ -121,7 +120,7 @@ class _NotificationComponentWidgetState
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 4.0, 0.0),
                                               child: Column(
@@ -150,7 +149,7 @@ class _NotificationComponentWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -174,7 +173,7 @@ class _NotificationComponentWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 12.0,
                                                                 0.0, 0.0),
                                                     child: ClipRRect(
@@ -188,7 +187,7 @@ class _NotificationComponentWidgetState
                                                         ).toString(),
                                                         width: 300.0,
                                                         height: 200.0,
-                                                        fit: BoxFit.cover,
+                                                        fit: BoxFit.fill,
                                                       ),
                                                     ),
                                                   ),
@@ -212,13 +211,13 @@ class _NotificationComponentWidgetState
               ),
             ),
           ),
-          if (widget.profile == 'ADMIN')
+          if (FFAppState().profile == 'ADMIN')
             Align(
-              alignment: const AlignmentDirectional(1.0, 1.0),
+              alignment: AlignmentDirectional(1.0, 1.0),
               child: Builder(
                 builder: (context) => Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
                   child: FloatingActionButton(
                     onPressed: () async {
                       await showDialog(
@@ -228,15 +227,9 @@ class _NotificationComponentWidgetState
                             elevation: 0,
                             insetPadding: EdgeInsets.zero,
                             backgroundColor: Colors.transparent,
-                            alignment: const AlignmentDirectional(0.0, 0.0)
+                            alignment: AlignmentDirectional(0.0, 0.0)
                                 .resolve(Directionality.of(context)),
-                            child: const NotificationsUpsertWidget(
-                              id: '',
-                              classId: '',
-                              title: '',
-                              type: '',
-                              description: '',
-                            ),
+                            child: NotificationsUpsertWidget(),
                           );
                         },
                       ).then((value) => setState(() {}));

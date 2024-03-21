@@ -1,26 +1,50 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/summary/summary_upsert/summary_upsert_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'summaries_component_model.dart';
 export 'summaries_component_model.dart';
 
 class SummariesComponentWidget extends StatefulWidget {
-  const SummariesComponentWidget({
-    super.key,
-    required this.profile,
-  });
-
-  final String? profile;
+  const SummariesComponentWidget({super.key});
 
   @override
   State<SummariesComponentWidget> createState() =>
       _SummariesComponentWidgetState();
 }
 
-class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
+class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
+    with TickerProviderStateMixin {
   late SummariesComponentModel _model;
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -32,6 +56,13 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SummariesComponentModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -43,6 +74,8 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         Container(
@@ -66,13 +99,8 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
                     return;
                   }
                   _model.calendarSelectedDay = newSelectedDate;
-                  setState(() {
-                    FFAppState().summaryDate =
-                        DateTime.fromMillisecondsSinceEpoch(1710180840000);
-                  });
-                  setState(() {
-                    FFAppState().summaryDate =
-                        _model.calendarSelectedDay?.start;
+                  _model.updatePage(() {
+                    FFAppState().date = _model.calendarSelectedDay?.start;
                   });
                   setState(() {});
                 },
@@ -96,15 +124,212 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
                           color: FlutterFlowTheme.of(context).success,
                         ),
               ),
+              FutureBuilder<ApiCallResponse>(
+                future: FindSummariesCall.call(
+                  accountId: FFAppState().id,
+                  profile: FFAppState().profile,
+                  date: dateTimeFormat(
+                      'dd/MM/yyyy', _model.calendarSelectedDay?.start),
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            FlutterFlowTheme.of(context).primary,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  final listViewFindSummariesResponse = snapshot.data!;
+                  return Builder(
+                    builder: (context) {
+                      final summaries = FindSummariesCall.summaries(
+                            listViewFindSummariesResponse.jsonBody,
+                          )?.toList() ??
+                          [];
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: summaries.length,
+                        itemBuilder: (context, summariesIndex) {
+                          final summariesItem = summaries[summariesIndex];
+                          return Builder(
+                            builder: (context) => Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 1.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: SummaryUpsertWidget(
+                                          id: getJsonField(
+                                            summariesItem,
+                                            r'''$.id''',
+                                          ).toString(),
+                                          studentId: getJsonField(
+                                            summariesItem,
+                                            r'''$.studentId''',
+                                          ).toString(),
+                                          date: getJsonField(
+                                            summariesItem,
+                                            r'''$.date''',
+                                          ).toString(),
+                                          mornningSnack: getJsonField(
+                                            summariesItem,
+                                            r'''$.mornningSnack''',
+                                          ).toString(),
+                                          mornningSnackConsumn: getJsonField(
+                                            summariesItem,
+                                            r'''$.mornningSnackConsumn''',
+                                          ).toString(),
+                                          luncheon: getJsonField(
+                                            summariesItem,
+                                            r'''$.luncheon''',
+                                          ).toString(),
+                                          afternoonSnack: getJsonField(
+                                            summariesItem,
+                                            r'''$.afternoonSnack''',
+                                          ).toString(),
+                                          preDinner: getJsonField(
+                                            summariesItem,
+                                            r'''$.preDinner''',
+                                          ).toString(),
+                                          afternoonSnackConsumn: getJsonField(
+                                            summariesItem,
+                                            r'''$.afternoonSnackConsumn''',
+                                          ).toString(),
+                                          preDinnerConsumn: getJsonField(
+                                            summariesItem,
+                                            r'''$.preDinnerConsumn''',
+                                          ).toString(),
+                                          luncheonConsumn: getJsonField(
+                                            summariesItem,
+                                            r'''$.luncheonConsumn''',
+                                          ).toString(),
+                                          description: getJsonField(
+                                            summariesItem,
+                                            r'''$.description''',
+                                          ).toString(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 0.0,
+                                        color: Color(0xFFE0E3E7),
+                                        offset: Offset(0.0, 1.0),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  getJsonField(
+                                                    summariesItem,
+                                                    r'''$.studentId''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            Color(0xFF14181B),
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          elevation: 1.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(40.0),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(4.0),
+                                            child: Icon(
+                                              Icons
+                                                  .keyboard_arrow_right_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .success,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation']!),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),
-        if (widget.profile == 'ADMIN')
+        if (FFAppState().profile == 'ADMIN')
           Align(
-            alignment: const AlignmentDirectional(1.0, 1.0),
+            alignment: AlignmentDirectional(1.0, 1.0),
             child: Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
                 child: FloatingActionButton(
                   onPressed: () async {
                     await showDialog(
@@ -114,10 +339,11 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget> {
                           elevation: 0,
                           insetPadding: EdgeInsets.zero,
                           backgroundColor: Colors.transparent,
-                          alignment: const AlignmentDirectional(0.0, 0.0)
+                          alignment: AlignmentDirectional(0.0, 0.0)
                               .resolve(Directionality.of(context)),
                           child: SummaryUpsertWidget(
-                            date: _model.calendarSelectedDay!.start,
+                            date: dateTimeFormat('dd/MM/yyyy',
+                                _model.calendarSelectedDay!.start),
                           ),
                         );
                       },
