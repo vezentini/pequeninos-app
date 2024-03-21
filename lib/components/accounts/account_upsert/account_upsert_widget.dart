@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'account_upsert_model.dart';
 export 'account_upsert_model.dart';
@@ -24,8 +22,8 @@ class AccountUpsertWidget extends StatefulWidget {
     String? profile,
     required this.studentIds,
     required this.editProfile,
-  })  : this.name = name ?? '1231ads',
-        this.profile = profile ?? 'ADMIN';
+  })  : name = name ?? '1231ads',
+        profile = profile ?? 'ADMIN';
 
   final int? id;
   final String name;
@@ -85,17 +83,17 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 530.0,
           ),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 3.0,
                 color: Color(0x33000000),
@@ -104,7 +102,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
             ],
             borderRadius: BorderRadius.circular(24.0),
             border: Border.all(
-              color: Color(0xFFF5FBFB),
+              color: const Color(0xFFF5FBFB),
               width: 1.0,
             ),
           ),
@@ -113,7 +111,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -124,9 +122,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 100.0, 0.0, 0.0, 0.0),
                             child: Text(
                               'Usuário',
@@ -143,7 +141,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
+                          alignment: const AlignmentDirectional(1.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               Navigator.pop(context);
@@ -156,9 +154,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                             ),
                             options: FFButtonOptions(
                               width: 25.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).info,
                               textStyle: FlutterFlowTheme.of(context)
@@ -167,7 +165,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context).info,
                                   ),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 8.0,
                               ),
@@ -178,17 +176,17 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Text(
                           'Tela de manutenção do cadastro de usuário',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Inter',
-                                    color: Color(0xFF57636C),
+                                    color: const Color(0xFF57636C),
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -199,10 +197,10 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                  child: Container(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  child: SizedBox(
                     width: double.infinity,
                     child: Form(
                       key: _model.formKey,
@@ -214,7 +212,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -231,9 +229,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 20.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -309,7 +307,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -326,9 +324,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 20.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -404,7 +402,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -421,9 +419,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 20.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -501,7 +499,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -518,9 +516,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 20.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -600,7 +598,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                             ),
                             if (widget.editProfile == true)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -617,7 +615,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 20.0, 0.0),
                                         child: TextFormField(
                                           controller: _model
@@ -720,7 +718,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             if (widget.id == 0)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -736,7 +734,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: FlutterFlowRadioButton(
                                         options: Profile.values
@@ -778,7 +776,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                             if ((FFAppState().profile == 'ADMIN') &&
                                 (widget.editProfile == false))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -797,7 +795,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                 ),
                               ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -828,7 +826,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                         }
                                         final dependentsCheckboxFindStudentsSelectionResponse =
                                             snapshot.data!;
-                                        return Container(
+                                        return SizedBox(
                                           width: 320.0,
                                           height: 50.0,
                                           child:
@@ -859,14 +857,14 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
-                        var _shouldSetState = false;
+                        var shouldSetState = false;
                         _model.accountUpertResultApi =
                             await AccountUpsertCall.call(
                           id: widget.id,
@@ -878,7 +876,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                           password: _model.passwordTextFieldController.text,
                           phone: _model.phoneTextFieldController.text,
                         );
-                        _shouldSetState = true;
+                        shouldSetState = true;
                         if ((_model.accountUpertResultApi?.succeeded ?? true)) {
                           if (widget.editProfile != false) {
                             setState(() {
@@ -890,20 +888,20 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                           }
                           Navigator.pop(context);
                         } else {
-                          if (_shouldSetState) setState(() {});
+                          if (shouldSetState) setState(() {});
                           return;
                         }
 
-                        if (_shouldSetState) setState(() {});
+                        if (shouldSetState) setState(() {});
                       },
                       text: 'Salvar',
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                        color: Color(0xFF06D5CD),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        color: const Color(0xFF06D5CD),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Inter',
@@ -912,7 +910,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                         ),
                         borderRadius: BorderRadius.circular(40.0),
@@ -941,9 +939,9 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                         text: 'Deletar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).error,
                           textStyle:
@@ -954,7 +952,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                     fontWeight: FontWeight.w500,
                                   ),
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(40.0),
