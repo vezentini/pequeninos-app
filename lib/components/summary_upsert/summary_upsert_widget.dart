@@ -61,7 +61,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
     super.initState();
     _model = createModel(context, () => SummaryUpsertModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??= TextEditingController(text: widget.date);
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??=
@@ -506,7 +506,10 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             _model.dropDownValueController2 ??=
                                                 FormFieldController<String>(
                                           _model.dropDownValue2 ??=
-                                              widget.mornningSnackConsumn,
+                                              valueOrDefault<String>(
+                                            widget.mornningSnackConsumn,
+                                            'TUDO',
+                                          ),
                                         ),
                                         options: const ['TUDO', 'NADA', 'MEIO'],
                                         onChanged: (val) => setState(
@@ -658,7 +661,10 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .dropDownValueController3 ??=
                                               FormFieldController<String>(
                                             _model.dropDownValue3 ??=
-                                                widget.luncheonConsumn,
+                                                valueOrDefault<String>(
+                                              widget.luncheonConsumn,
+                                              'TUDO',
+                                            ),
                                           ),
                                           options: const ['TUDO', 'NADA', 'MEIO'],
                                           onChanged: (val) => setState(() =>
@@ -829,7 +835,10 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             _model.dropDownValueController4 ??=
                                                 FormFieldController<String>(
                                           _model.dropDownValue4 ??=
-                                              widget.afternoonSnackConsumn,
+                                              valueOrDefault<String>(
+                                            widget.afternoonSnackConsumn,
+                                            'TUDO',
+                                          ),
                                         ),
                                         options: const ['TUDO', 'NADA', 'MEIO'],
                                         onChanged: (val) => setState(
@@ -981,7 +990,10 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .dropDownValueController5 ??=
                                               FormFieldController<String>(
                                             _model.dropDownValue5 ??=
-                                                widget.preDinnerConsumn,
+                                                valueOrDefault<String>(
+                                              widget.preDinnerConsumn,
+                                              'TUDO',
+                                            ),
                                           ),
                                           options: const ['TUDO', 'NADA', 'MEIO'],
                                           onChanged: (val) => setState(() =>

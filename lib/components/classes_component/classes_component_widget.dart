@@ -206,18 +206,22 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                             child: Card(
                                               clipBehavior:
                                                   Clip.antiAliasWithSaveLayer,
-                                              color: const Color(0xFFF1F4F8),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
                                               elevation: 1.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(40.0),
                                               ),
-                                              child: const Padding(
-                                                padding: EdgeInsets.all(4.0),
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(4.0),
                                                 child: Icon(
                                                   Icons
                                                       .keyboard_arrow_right_rounded,
-                                                  color: Color(0xFF57636C),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .success,
                                                   size: 24.0,
                                                 ),
                                               ),

@@ -30,12 +30,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const LoginPageWidget(),
+      errorBuilder: (context, state) => appStateNotifier.showSplashImage
+          ? Builder(
+              builder: (context) => Container(
+                color: Colors.transparent,
+                child: Image.asset(
+                  'assets/images/pequeninos_image.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+            )
+          : const LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const LoginPageWidget(),
+          builder: (context, _) => appStateNotifier.showSplashImage
+              ? Builder(
+                  builder: (context) => Container(
+                    color: Colors.transparent,
+                    child: Image.asset(
+                      'assets/images/pequeninos_image.png',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                )
+              : const LoginPageWidget(),
         ),
         FFRoute(
           name: 'loginPage',

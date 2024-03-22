@@ -91,9 +91,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                 iconColor: FlutterFlowTheme.of(context).success,
                 weekFormat: true,
                 weekStartsMonday: true,
-                twoRowHeader: true,
                 initialDate: getCurrentTimestamp,
-                rowHeight: 100.0,
                 onChange: (DateTimeRange? newSelectedDate) async {
                   if (_model.calendarSelectedDay == newSelectedDate) {
                     return;
@@ -113,6 +111,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                     FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).success,
+                          lineHeight: 0.8,
                         ),
                 dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Readex Pro',
