@@ -41,7 +41,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).alternate,
+        backgroundColor: FlutterFlowTheme.of(context).info,
         drawer: SizedBox(
           width: 250.0,
           child: Drawer(

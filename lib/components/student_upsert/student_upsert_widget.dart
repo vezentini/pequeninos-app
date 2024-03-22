@@ -69,13 +69,6 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
           ),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                blurRadius: 3.0,
-                color: Color(0x33000000),
-                offset: Offset(0.0, 1.0),
-              )
-            ],
             borderRadius: BorderRadius.circular(24.0),
             border: Border.all(
               color: const Color(0xFFF5FBFB),

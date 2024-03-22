@@ -210,7 +210,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                       autovalidateMode: AutovalidateMode.disabled,
                       child: SingleChildScrollView(
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [

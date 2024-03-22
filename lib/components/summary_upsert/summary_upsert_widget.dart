@@ -118,6 +118,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
               width: 1.0,
             ),
           ),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: SingleChildScrollView(
             primary: false,
             child: Column(
@@ -521,14 +522,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .override(
                                               fontFamily: 'Readex Pro',
                                               color: Colors.black,
-                                              fontSize: 12.0,
+                                              fontSize: 10.0,
                                             ),
                                         hintText: widget.mornningSnackConsumn,
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 12.0,
                                         ),
                                         fillColor:
                                             FlutterFlowTheme.of(context).info,
@@ -684,7 +685,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24.0,
+                                            size: 12.0,
                                           ),
                                           fillColor:
                                               FlutterFlowTheme.of(context).info,
@@ -857,7 +858,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 12.0,
                                         ),
                                         fillColor:
                                             FlutterFlowTheme.of(context).info,
@@ -893,7 +894,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1013,7 +1014,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24.0,
+                                            size: 12.0,
                                           ),
                                           fillColor:
                                               FlutterFlowTheme.of(context).info,
