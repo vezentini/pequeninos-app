@@ -1,4 +1,4 @@
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';

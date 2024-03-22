@@ -54,11 +54,10 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>Abrir</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
-	<key>NSCalendarsUsageDescription</key>
-    <string>Por favor, conceder acesso ao recurso de calendário</string>
+    <string>Por favor, conceder acesso a galeria</string>
+
 
 
 	<key>UILaunchStoryboardName</key>

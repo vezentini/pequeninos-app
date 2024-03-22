@@ -1,5 +1,5 @@
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
-import '/components/summary/summaries_component/summaries_component_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/summaries_component/summaries_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'summaries_page_widget.dart' show SummariesPageWidget;
 import 'package:flutter/material.dart';

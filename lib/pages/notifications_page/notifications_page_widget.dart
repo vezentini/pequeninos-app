@@ -1,5 +1,5 @@
-import '/components/notifications/notification_component/notification_component_widget.dart';
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/notification_component/notification_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +23,9 @@ class _NotificationsPageWidgetState extends State<NotificationsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NotificationsPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'notificationsPage'});
   }
 
   @override

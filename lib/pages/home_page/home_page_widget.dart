@@ -1,4 +1,4 @@
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'homePage'});
   }
 
   @override
@@ -80,11 +82,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            child: Image.asset(
-              'assets/images/wepik-export-20240320115613sy0z.png',
+            child: Image.network(
+              'https://i.ibb.co/4KZ8bZS/pequeninos-image.png',
               width: 300.0,
               height: 200.0,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
         ),

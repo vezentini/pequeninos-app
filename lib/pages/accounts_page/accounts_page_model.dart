@@ -1,5 +1,5 @@
-import '/components/accounts/accounts_component/accounts_component_widget.dart';
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
+import '/components/accounts_component/accounts_component_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'accounts_page_widget.dart' show AccountsPageWidget;
 import 'package:flutter/material.dart';

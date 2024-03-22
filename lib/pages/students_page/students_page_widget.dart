@@ -1,5 +1,5 @@
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
-import '/components/students/student_component/student_component_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/components/student_component/student_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +22,9 @@ class _StudentsPageWidgetState extends State<StudentsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => StudentsPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'studentsPage'});
   }
 
   @override

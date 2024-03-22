@@ -1,5 +1,5 @@
-import '/components/classes/classes_component/classes_component_widget.dart';
-import '/components/others/menu_coponent/menu_coponent_widget.dart';
+import '/components/classes_component/classes_component_widget.dart';
+import '/components/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +22,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ClassesPageModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'classesPage'});
   }
 
   @override
