@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'classes_component_model.dart';
 export 'classes_component_model.dart';
 
@@ -34,8 +37,8 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: const Offset(0.0, 100.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -69,7 +72,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
       height: double.infinity,
       child: Stack(
@@ -81,7 +84,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FutureBuilder<ApiCallResponse>(
                     future: FindClassesCall.call(),
                     builder: (context, snapshot) {
@@ -113,11 +116,11 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                             itemBuilder: (context, classesIndex) {
                               final classesItem = classes[classesIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: Container(
                                   width: double.infinity,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                     boxShadow: [
                                       BoxShadow(
@@ -128,7 +131,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -139,7 +142,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -154,7 +157,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -183,7 +186,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                                     backgroundColor:
                                                         Colors.transparent,
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                                 0.0, 0.0)
                                                             .resolve(
                                                                 Directionality.of(
@@ -215,7 +218,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                                                     BorderRadius.circular(40.0),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(4.0),
+                                                padding: EdgeInsets.all(4.0),
                                                 child: Icon(
                                                   Icons
                                                       .keyboard_arrow_right_rounded,
@@ -245,10 +248,10 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(1.0, 1.0),
+            alignment: AlignmentDirectional(1.0, 1.0),
             child: Builder(
               builder: (context) => Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
                 child: FloatingActionButton(
                   onPressed: () async {
                     logFirebaseEvent('CLASSES_COMPONENT_AddClassButton_ON_TAP');
@@ -259,9 +262,9 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                           elevation: 0,
                           insetPadding: EdgeInsets.zero,
                           backgroundColor: Colors.transparent,
-                          alignment: const AlignmentDirectional(0.0, 0.0)
+                          alignment: AlignmentDirectional(0.0, 0.0)
                               .resolve(Directionality.of(context)),
-                          child: const ClassUpsertWidget(
+                          child: ClassUpsertWidget(
                             id: 0,
                             name: '',
                           ),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -17,7 +21,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   Future initializePersistedState() async {
-    secureStorage = const FlutterSecureStorage();
+    secureStorage = FlutterSecureStorage();
     await _safeInitAsync(() async {
       _email = await secureStorage.getString('ff_email') ?? _email;
     });
@@ -38,9 +42,9 @@ class FFAppState extends ChangeNotifier {
 
   String _email = '';
   String get email => _email;
-  set email(String value) {
-    _email = value;
-    secureStorage.setString('ff_email', value);
+  set email(String _value) {
+    _email = _value;
+    secureStorage.setString('ff_email', _value);
   }
 
   void deleteEmail() {
@@ -49,9 +53,9 @@ class FFAppState extends ChangeNotifier {
 
   String _name = '';
   String get name => _name;
-  set name(String value) {
-    _name = value;
-    secureStorage.setString('ff_name', value);
+  set name(String _value) {
+    _name = _value;
+    secureStorage.setString('ff_name', _value);
   }
 
   void deleteName() {
@@ -60,9 +64,9 @@ class FFAppState extends ChangeNotifier {
 
   String _profile = '';
   String get profile => _profile;
-  set profile(String value) {
-    _profile = value;
-    secureStorage.setString('ff_profile', value);
+  set profile(String _value) {
+    _profile = _value;
+    secureStorage.setString('ff_profile', _value);
   }
 
   void deleteProfile() {
@@ -71,43 +75,43 @@ class FFAppState extends ChangeNotifier {
 
   DateTime? _date = DateTime.fromMillisecondsSinceEpoch(1710795000000);
   DateTime? get date => _date;
-  set date(DateTime? value) {
-    _date = value;
+  set date(DateTime? _value) {
+    _date = _value;
   }
 
   int _id = 0;
   int get id => _id;
-  set id(int value) {
-    _id = value;
+  set id(int _value) {
+    _id = _value;
   }
 
   List<String> _studentIds = [];
   List<String> get studentIds => _studentIds;
-  set studentIds(List<String> value) {
-    _studentIds = value;
+  set studentIds(List<String> _value) {
+    _studentIds = _value;
   }
 
-  void addToStudentIds(String value) {
-    _studentIds.add(value);
+  void addToStudentIds(String _value) {
+    _studentIds.add(_value);
   }
 
-  void removeFromStudentIds(String value) {
-    _studentIds.remove(value);
+  void removeFromStudentIds(String _value) {
+    _studentIds.remove(_value);
   }
 
-  void removeAtIndexFromStudentIds(int index) {
-    _studentIds.removeAt(index);
+  void removeAtIndexFromStudentIds(int _index) {
+    _studentIds.removeAt(_index);
   }
 
   void updateStudentIdsAtIndex(
-    int index,
+    int _index,
     String Function(String) updateFn,
   ) {
-    _studentIds[index] = updateFn(_studentIds[index]);
+    _studentIds[_index] = updateFn(_studentIds[_index]);
   }
 
-  void insertAtIndexInStudentIds(int index, String value) {
-    _studentIds.insert(index, value);
+  void insertAtIndexInStudentIds(int _index, String _value) {
+    _studentIds.insert(_index, _value);
   }
 }
 
@@ -156,12 +160,12 @@ extension FlutterSecureStorageExtensions on FlutterSecureStorage {
         if (result == null || result.isEmpty) {
           return null;
         }
-        return const CsvToListConverter()
+        return CsvToListConverter()
             .convert(result)
             .first
             .map((e) => e.toString())
             .toList();
       });
   Future<void> setStringList(String key, List<String> value) async =>
-      await writeSync(key: key, value: const ListToCsvConverter().convert([value]));
+      await writeSync(key: key, value: ListToCsvConverter().convert([value]));
 }

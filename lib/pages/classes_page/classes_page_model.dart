@@ -1,8 +1,12 @@
 import '/components/classes_component/classes_component_widget.dart';
 import '/components/menu_coponent/menu_coponent_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'classes_page_widget.dart' show ClassesPageWidget;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ClassesPageModel extends FlutterFlowModel<ClassesPageWidget> {
   ///  State fields for stateful widgets in this page.

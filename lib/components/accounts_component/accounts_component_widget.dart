@@ -6,7 +6,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'accounts_component_model.dart';
 export 'accounts_component_model.dart';
@@ -38,8 +40,8 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: const Offset(0.0, 100.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -75,7 +77,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return SizedBox(
+    return Container(
       width: double.infinity,
       height: double.infinity,
       child: Stack(
@@ -119,7 +121,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                 eachAccounts[eachAccountsIndex];
                             return Builder(
                               builder: (context) => Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -136,7 +138,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                           elevation: 0,
                                           insetPadding: EdgeInsets.zero,
                                           backgroundColor: Colors.transparent,
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                                   0.0, 0.0)
                                               .resolve(
                                                   Directionality.of(context)),
@@ -172,7 +174,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                             ) as List)
                                                 .map<String>(
                                                     (s) => s.toString())
-                                                .toList(),
+                                                .toList()!,
                                             editProfile: false,
                                           ),
                                         );
@@ -183,7 +185,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 0.0,
                                           color: Color(0xFFE0E3E7),
@@ -193,7 +195,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                       borderRadius: BorderRadius.circular(0.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -204,7 +206,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -219,7 +221,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -240,7 +242,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                                                   BorderRadius.circular(40.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(4.0),
+                                              padding: EdgeInsets.all(4.0),
                                               child: Icon(
                                                 Icons
                                                     .keyboard_arrow_right_rounded,
@@ -270,11 +272,11 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
           ),
           if (FFAppState().profile == 'ADMIN')
             Align(
-              alignment: const AlignmentDirectional(1.0, 1.0),
+              alignment: AlignmentDirectional(1.0, 1.0),
               child: Builder(
                 builder: (context) => Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
                   child: FloatingActionButton(
                     onPressed: () async {
                       logFirebaseEvent(
@@ -286,7 +288,7 @@ class _AccountsComponentWidgetState extends State<AccountsComponentWidget>
                             elevation: 0,
                             insetPadding: EdgeInsets.zero,
                             backgroundColor: Colors.transparent,
-                            alignment: const AlignmentDirectional(0.0, 0.0)
+                            alignment: AlignmentDirectional(0.0, 0.0)
                                 .resolve(Directionality.of(context)),
                             child: AccountUpsertWidget(
                               id: 0,

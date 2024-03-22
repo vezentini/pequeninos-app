@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'account_upsert_model.dart';
 export 'account_upsert_model.dart';
@@ -22,8 +24,8 @@ class AccountUpsertWidget extends StatefulWidget {
     String? profile,
     required this.studentIds,
     required this.editProfile,
-  })  : name = name ?? '1231ads',
-        profile = profile ?? 'ADMIN';
+  })  : this.name = name ?? '1231ads',
+        this.profile = profile ?? 'ADMIN';
 
   final int? id;
   final String name;
@@ -83,17 +85,17 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
           width: double.infinity,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             maxWidth: 530.0,
           ),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 blurRadius: 3.0,
                 color: Color(0x33000000),
@@ -102,126 +104,129 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
             ],
             borderRadius: BorderRadius.circular(24.0),
             border: Border.all(
-              color: const Color(0xFFF5FBFB),
+              color: Color(0xFFF5FBFB),
               width: 1.0,
             ),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                100.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Usuário',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).success,
-                                    fontSize: 28.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(1.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'ACCOUNT_UPSERT_COMP__BTN_ON_TAP');
-                              Navigator.pop(context);
-                            },
-                            text: '',
-                            icon: Icon(
-                              Icons.close,
-                              color: FlutterFlowTheme.of(context).secondary,
-                              size: 15.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: 25.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).info,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).info,
-                                  ),
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 8.0,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  100.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Usuário',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
+                                      fontSize: 28.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'Tela de manutenção do cadastro de usuário',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Inter',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                          Align(
+                            alignment: AlignmentDirectional(1.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'ACCOUNT_UPSERT_COMP__BTN_ON_TAP');
+                                Navigator.pop(context);
+                              },
+                              text: '',
+                              icon: Icon(
+                                Icons.close,
+                                color: FlutterFlowTheme.of(context).secondary,
+                                size: 15.0,
+                              ),
+                              options: FFButtonOptions(
+                                width: 25.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).info,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: FlutterFlowTheme.of(context).info,
+                                    ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 8.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Text(
+                            'Tela de manutenção do cadastro de usuário',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Form(
-                      key: _model.formKey,
-                      autovalidateMode: AutovalidateMode.disabled,
-                      child: SingleChildScrollView(
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      child: Form(
+                        key: _model.formKey,
+                        autovalidateMode: AutovalidateMode.disabled,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
-                                    child: SizedBox(
+                                    child: Container(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
@@ -297,13 +302,13 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
-                                    child: SizedBox(
+                                    child: Container(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
@@ -379,13 +384,13 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
-                                    child: SizedBox(
+                                    child: Container(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
@@ -463,13 +468,13 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
-                                    child: SizedBox(
+                                    child: Container(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller:
@@ -549,13 +554,13 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                             ),
                             if (widget.editProfile == true)
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
-                                      child: SizedBox(
+                                      child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -652,7 +657,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                               ),
                             if (widget.id == 0)
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -668,7 +673,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                           ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: FlutterFlowRadioButton(
                                         options: Profile.values
@@ -703,7 +708,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                             if ((FFAppState().profile == 'ADMIN') &&
                                 (widget.editProfile == false))
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -722,7 +727,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                 ),
                               ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -753,7 +758,7 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                         }
                                         final dependentsCheckboxFindStudentsSelectionResponse =
                                             snapshot.data!;
-                                        return SizedBox(
+                                        return Container(
                                           width: 320.0,
                                           height: 50.0,
                                           child:
@@ -782,103 +787,59 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'ACCOUNT_UPSERT_COMP_SALVAR_BTN_ON_TAP');
-                        var shouldSetState = false;
-                        if (_model.formKey.currentState == null ||
-                            !_model.formKey.currentState!.validate()) {
-                          return;
-                        }
-                        _model.accountUpertResultApi =
-                            await AccountUpsertCall.call(
-                          id: widget.id,
-                          name: _model.nameTextFieldController.text,
-                          studentsIdsList: FFAppState().studentIds,
-                          profile: _model.profileRadionButtonValue,
-                          document: _model.documentTextFieldController.text,
-                          email: _model.emailTextFieldController.text,
-                          password: _model.passwordTextFieldController.text,
-                          phone: _model.phoneTextFieldController.text,
-                        );
-                        shouldSetState = true;
-                        if ((_model.accountUpertResultApi?.succeeded ?? true)) {
-                          if (widget.editProfile != false) {
-                            setState(() {
-                              FFAppState().email =
-                                  _model.emailTextFieldController.text;
-                              FFAppState().name =
-                                  _model.nameTextFieldController.text;
-                            });
-                          }
-                          Navigator.pop(context);
-                        } else {
-                          if (shouldSetState) setState(() {});
-                          return;
-                        }
-
-                        if (shouldSetState) setState(() {});
-                      },
-                      text: 'Salvar',
-                      options: FFButtonOptions(
-                        height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                        color: const Color(0xFF06D5CD),
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter',
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                        elevation: 0.0,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                        ),
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                    ),
-                    if ((int id, String empty, String userLoggedProfile,
-                            bool editProfile) {
-                      return id != 0 &&
-                          userLoggedProfile == "ADMIN" &&
-                          editProfile == false;
-                    }(widget.id!, '', FFAppState().profile,
-                        widget.editProfile!))
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
                       FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(
-                              'ACCOUNT_UPSERT_COMP_DELETAR_BTN_ON_TAP');
-                          _model.deleteAccountApiResult =
-                              await DeleteAccountCall.call(
+                              'ACCOUNT_UPSERT_COMP_SALVAR_BTN_ON_TAP');
+                          var _shouldSetState = false;
+                          if (_model.formKey.currentState == null ||
+                              !_model.formKey.currentState!.validate()) {
+                            return;
+                          }
+                          _model.accountUpertResultApi =
+                              await AccountUpsertCall.call(
                             id: widget.id,
+                            name: _model.nameTextFieldController.text,
+                            studentsIdsList: FFAppState().studentIds,
+                            profile: _model.profileRadionButtonValue,
+                            document: _model.documentTextFieldController.text,
+                            email: _model.emailTextFieldController.text,
+                            password: _model.passwordTextFieldController.text,
+                            phone: _model.phoneTextFieldController.text,
                           );
-                          if ((_model.deleteAccountApiResult?.succeeded ??
+                          _shouldSetState = true;
+                          if ((_model.accountUpertResultApi?.succeeded ??
                               true)) {
+                            if (widget.editProfile != false) {
+                              setState(() {
+                                FFAppState().email =
+                                    _model.emailTextFieldController.text;
+                                FFAppState().name =
+                                    _model.nameTextFieldController.text;
+                              });
+                            }
                             Navigator.pop(context);
+                          } else {
+                            if (_shouldSetState) setState(() {});
+                            return;
                           }
 
-                          setState(() {});
+                          if (_shouldSetState) setState(() {});
                         },
-                        text: 'Deletar',
+                        text: 'Salvar',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).error,
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 10.0, 0.0),
+                          color: Color(0xFF06D5CD),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
@@ -887,16 +848,62 @@ class _AccountUpsertWidgetState extends State<AccountUpsertWidget> {
                                     fontWeight: FontWeight.w500,
                                   ),
                           elevation: 0.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                           ),
                           borderRadius: BorderRadius.circular(40.0),
                         ),
                       ),
-                  ],
+                      if ((int id, String empty, String userLoggedProfile,
+                              bool editProfile) {
+                        return id != 0 &&
+                            userLoggedProfile == "ADMIN" &&
+                            editProfile == false;
+                      }(widget.id!, '', FFAppState().profile,
+                          widget.editProfile!))
+                        FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'ACCOUNT_UPSERT_COMP_DELETAR_BTN_ON_TAP');
+                            _model.deleteAccountApiResult =
+                                await DeleteAccountCall.call(
+                              id: widget.id,
+                            );
+                            if ((_model.deleteAccountApiResult?.succeeded ??
+                                true)) {
+                              Navigator.pop(context);
+                            }
+
+                            setState(() {});
+                          },
+                          text: 'Deletar',
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 20.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).error,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(40.0),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

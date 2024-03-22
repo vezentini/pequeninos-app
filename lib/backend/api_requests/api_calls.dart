@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -347,10 +349,10 @@ class NotificationsUpsertCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id": $id,
-  "title": "$title",
-  "description": "$description",
-  "photo": "$photo"
+  "id": ${id},
+  "title": "${title}",
+  "description": "${description}",
+  "photo": "${photo}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Notifications Upsert',
@@ -377,8 +379,8 @@ class ClassUpsertCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id": $id,
-  "name": "$name"
+  "id": ${id},
+  "name": "${name}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Class Upsert',
@@ -407,10 +409,10 @@ class StudentUpsertCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id": $id,
-  "name": "$name",
-  "classId": "$classId",
-  "gender": "$gender"
+  "id": ${id},
+  "name": "${name}",
+  "classId": "${classId}",
+  "gender": "${gender}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Student Upsert',
@@ -445,14 +447,14 @@ class AccountUpsertCall {
 
     final ffApiRequestBody = '''
 {
-  "id": $id,
-  "name": "$name",
-  "document": "$document",
-  "email": "$email",
-  "password": "$password",
-  "phone": "$phone",
-  "studentIds": $studentsIds,
-  "profile": "$profile"
+  "id": ${id},
+  "name": "${name}",
+  "document": "${document}",
+  "email": "${email}",
+  "password": "${password}",
+  "phone": "${phone}",
+  "studentIds": ${studentsIds},
+  "profile": "${profile}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Account Upsert',
@@ -489,18 +491,18 @@ class SummaryUpsertCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id": "$id",
-  "date": "$date",
-  "studentId": "$studentId",
-  "mornningSnack": "$mornningSnack",
-  "mornningSnackConsumn": "$mornningSnackConsumn",
-  "luncheon": "$luncheon",
-  "luncheonConsumn": "$luncheonConsumn",
-  "afternoonSnack": "$afternoonSnack",
-  "afternoonSnackConsumn": "$afternoonSnackConsumn",
-  "preDinner": "$preDinner",
-  "preDinnerConsumn": "$preDinnerConsumn",
-  "description": "$description"
+  "id": "${id}",
+  "date": "${date}",
+  "studentId": "${studentId}",
+  "mornningSnack": "${mornningSnack}",
+  "mornningSnackConsumn": "${mornningSnackConsumn}",
+  "luncheon": "${luncheon}",
+  "luncheonConsumn": "${luncheonConsumn}",
+  "afternoonSnack": "${afternoonSnack}",
+  "afternoonSnackConsumn": "${afternoonSnackConsumn}",
+  "preDinner": "${preDinner}",
+  "preDinnerConsumn": "${preDinnerConsumn}",
+  "description": "${description}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Summary Upsert',

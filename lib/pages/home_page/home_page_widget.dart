@@ -1,7 +1,10 @@
 import '/components/menu_coponent/menu_coponent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -41,14 +44,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).info,
-        drawer: SizedBox(
+        drawer: Container(
           width: 250.0,
           child: Drawer(
             elevation: 1.0,
             child: wrapWithModel(
               model: _model.menuCoponentModel,
               updateCallback: () => setState(() {}),
-              child: const MenuCoponentWidget(),
+              child: MenuCoponentWidget(),
             ),
           ),
         ),
@@ -57,9 +60,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).info),
           automaticallyImplyLeading: true,
           title: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 50.0, 0.0),
               child: Text(
                 'Pequeninos App',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -70,7 +73,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 1.0,
         ),
