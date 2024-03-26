@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'menu_coponent_model.dart';
 export 'menu_coponent_model.dart';
@@ -51,27 +50,27 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: Text(
                               FFAppState().name,
@@ -85,7 +84,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),
                             child: Text(
                               FFAppState().email,
@@ -130,7 +129,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                     elevation: 0,
                                     insetPadding: EdgeInsets.zero,
                                     backgroundColor: Colors.transparent,
-                                    alignment: AlignmentDirectional(0.0, 0.0)
+                                    alignment: const AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
                                     child: AccountUpsertWidget(
                                       id: FindOneAccountCall.id(
@@ -189,7 +188,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                 ],
               ),
             ),
-            Divider(
+            const Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
@@ -198,7 +197,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
               child: Container(
                 width: double.infinity,
                 height: 380.0,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minWidth: double.infinity,
                   minHeight: 350.0,
                   maxWidth: double.infinity,
@@ -214,7 +213,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -229,7 +228,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                           Navigator.pop(context);
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           width: double.infinity,
                           height: 44.0,
@@ -242,7 +241,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -255,7 +254,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Página Inicial',
@@ -279,7 +278,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                     ),
                     if (FFAppState().profile == 'ADMIN')
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 5.0, 20.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -295,7 +294,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             Navigator.pop(context);
                           },
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
+                            duration: const Duration(milliseconds: 200),
                             curve: Curves.easeInOut,
                             width: double.infinity,
                             height: 44.0,
@@ -308,7 +307,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -321,7 +320,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Turmas',
@@ -346,7 +345,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                       ),
                     if (FFAppState().profile == 'ADMIN')
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 5.0, 20.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
@@ -362,7 +361,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             Navigator.pop(context);
                           },
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
+                            duration: const Duration(milliseconds: 200),
                             curve: Curves.easeInOut,
                             width: double.infinity,
                             height: 44.0,
@@ -375,7 +374,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -388,7 +387,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                   ),
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Usuários',
@@ -413,7 +412,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -428,7 +427,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                           Navigator.pop(context);
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           width: double.infinity,
                           height: 44.0,
@@ -441,7 +440,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -454,7 +453,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Alunos',
@@ -478,7 +477,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -493,7 +492,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                           Navigator.pop(context);
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           width: double.infinity,
                           height: 44.0,
@@ -506,7 +505,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -519,7 +518,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Resumo do dia',
@@ -543,7 +542,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -558,7 +557,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                           Navigator.pop(context);
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           width: double.infinity,
                           height: 44.0,
@@ -571,7 +570,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -584,7 +583,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Notificações',
@@ -608,7 +607,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -623,7 +622,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                           Navigator.pop(context);
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.easeInOut,
                           width: double.infinity,
                           height: 44.0,
@@ -636,7 +635,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -649,7 +648,7 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'Sair',
@@ -675,13 +674,13 @@ class _MenuCoponentWidgetState extends State<MenuCoponentWidget> {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,

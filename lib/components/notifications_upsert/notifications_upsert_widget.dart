@@ -5,9 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
 import 'notifications_upsert_model.dart';
 export 'notifications_upsert_model.dart';
 
@@ -59,13 +56,13 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 530.0,
           ),
           decoration: BoxDecoration(
@@ -74,7 +71,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
               BoxShadow(
                 blurRadius: 3.0,
                 color: FlutterFlowTheme.of(context).primaryBackground,
-                offset: Offset(0.0, 1.0),
+                offset: const Offset(0.0, 1.0),
               )
             ],
             borderRadius: BorderRadius.circular(24.0),
@@ -92,7 +89,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 10.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -102,11 +99,9 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  70.0, 0.0, 0.0, 0.0),
+                          Expanded(
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Notificação',
                                 textAlign: TextAlign.center,
@@ -116,54 +111,35 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                                       fontFamily: 'Roboto',
                                       color:
                                           FlutterFlowTheme.of(context).success,
-                                      fontSize: 28.0,
+                                      fontSize: 22.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'NOTIFICATIONS_UPSERT_COMP__BTN_ON_TAP');
-                                Navigator.pop(context);
-                              },
-                              text: '',
-                              icon: Icon(
-                                Icons.close,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 25.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).info,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context).info,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 8.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'NOTIFICATIONS_UPSERT_Icon_wtpz9hq0_ON_TA');
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close_sharp,
+                              color: FlutterFlowTheme.of(context).success,
+                              size: 16.0,
                             ),
                           ),
                         ],
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Text(
                             'Tela de manutenção de notificações',
                             textAlign: TextAlign.center,
@@ -172,7 +148,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                                 .override(
                                   fontFamily: 'Inter',
                                   color: Colors.black,
-                                  fontSize: 14.0,
+                                  fontSize: 12.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -183,7 +159,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
                   child: Form(
                     key: _model.formKey,
                     autovalidateMode: AutovalidateMode.disabled,
@@ -191,16 +167,16 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 5.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: double.infinity,
                                     child: TextFormField(
                                       controller:
@@ -285,9 +261,9 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: double.infinity,
                                   child: TextFormField(
                                     controller:
@@ -405,7 +381,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                                   tag: 'imageTag',
                                   transitionOnUserGestures: true,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(0.0),
                                       bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(0.0),
@@ -437,7 +413,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 10.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -486,18 +462,19 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                         text: 'Load Image',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0x4DE0BD22),
+                          color: const Color(0x4DE0BD22),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontSize: 14.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -540,7 +517,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: Duration(milliseconds: 4000),
+                                  duration: const Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).error,
                                 ),
@@ -556,7 +533,7 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: Duration(milliseconds: 4000),
+                                duration: const Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).error,
                               ),
@@ -568,18 +545,19 @@ class _NotificationsUpsertWidgetState extends State<NotificationsUpsertWidget> {
                         text: 'Save',
                         options: FFButtonOptions(
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).success,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
+                                    fontSize: 14.0,
                                   ),
                           elevation: 3.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

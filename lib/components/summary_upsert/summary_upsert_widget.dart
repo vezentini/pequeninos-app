@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'summary_upsert_model.dart';
 export 'summary_upsert_model.dart';
@@ -25,11 +24,11 @@ class SummaryUpsertWidget extends StatefulWidget {
     this.preDinnerConsumn,
     this.luncheonConsumn,
     this.description,
-  })  : this.studentId = studentId ?? '',
-        this.mornningSnack = mornningSnack ?? '',
-        this.luncheon = luncheon ?? '',
-        this.afternoonSnack = afternoonSnack ?? '',
-        this.preDinner = preDinner ?? '';
+  })  : studentId = studentId ?? '',
+        mornningSnack = mornningSnack ?? '',
+        luncheon = luncheon ?? '',
+        afternoonSnack = afternoonSnack ?? '',
+        preDinner = preDinner ?? '';
 
   final String? id;
   final String studentId;
@@ -95,22 +94,19 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          constraints: BoxConstraints(
-            maxWidth: 530.0,
-          ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).info,
             boxShadow: [
               BoxShadow(
                 blurRadius: 3.0,
                 color: FlutterFlowTheme.of(context).primaryBackground,
-                offset: Offset(0.0, 1.0),
+                offset: const Offset(0.0, 1.0),
               )
             ],
             borderRadius: BorderRadius.circular(24.0),
@@ -119,7 +115,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
               width: 1.0,
             ),
           ),
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: SingleChildScrollView(
             primary: false,
             child: Column(
@@ -129,7 +125,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 10.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -139,11 +135,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  50.0, 0.0, 0.0, 0.0),
+                          Expanded(
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Resumo do dia',
                                 textAlign: TextAlign.center,
@@ -153,54 +147,35 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       fontFamily: 'Roboto',
                                       color:
                                           FlutterFlowTheme.of(context).success,
-                                      fontSize: 28.0,
+                                      fontSize: 22.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(1.0, -1.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'SUMMARY_UPSERT_COMP__BTN_ON_TAP');
-                                Navigator.pop(context);
-                              },
-                              text: '',
-                              icon: Icon(
-                                Icons.close,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 25.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).info,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context).info,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 8.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'SUMMARY_UPSERT_COMP_Icon_63e6n9c9_ON_TAP');
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close_sharp,
+                              color: FlutterFlowTheme.of(context).success,
+                              size: 16.0,
                             ),
                           ),
                         ],
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 12.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Text(
                             'Tela de manutenção do resumo do dia',
                             textAlign: TextAlign.center,
@@ -209,7 +184,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 .override(
                                   fontFamily: 'Inter',
                                   color: Colors.black,
-                                  fontSize: 14.0,
+                                  fontSize: 12.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -219,11 +194,11 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                    child: Container(
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                    child: SizedBox(
                       width: double.infinity,
                       child: Form(
                         key: _model.formKey,
@@ -234,14 +209,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController1,
@@ -278,6 +253,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 color: Colors.black,
+                                                fontSize: 12.0,
                                               ),
                                           validator: _model
                                               .textController1Validator
@@ -289,7 +265,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -336,13 +312,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             onChanged: (val) => setState(() =>
                                                 _model.dropDownValue1 = val),
                                             width: double.infinity,
-                                            height: 60.0,
+                                            height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Readex Pro',
                                                       color: Colors.black,
+                                                      fontSize: 12.0,
                                                     ),
                                             hintText: 'Selecione o aluno...',
                                             icon: Icon(
@@ -350,7 +327,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
-                                              size: 24.0,
+                                              size: 10.0,
                                             ),
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
@@ -362,8 +339,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             borderWidth: 2.0,
                                             borderRadius: 8.0,
                                             margin:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 16.0, 5.0),
                                             hidesUnderline: true,
                                             disabled: (String? id) {
                                               return id != "" && id != null;
@@ -378,7 +355,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                     .override(
                                                       fontFamily: 'Readex Pro',
                                                       color: Colors.black,
-                                                      fontSize: 12.0,
+                                                      fontSize: 10.0,
                                                     ),
                                           );
                                         },
@@ -388,13 +365,13 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: Text(
                                         'Turno da manhã',
@@ -405,6 +382,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .success,
+                                              fontSize: 14.0,
                                             ),
                                       ),
                                     ),
@@ -417,7 +395,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.textController2,
@@ -499,9 +477,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 5.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller:
@@ -513,7 +491,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             'TUDO',
                                           ),
                                         ),
-                                        options: ['TUDO', 'NADA', 'MEIO'],
+                                        options: const ['TUDO', 'NADA', 'MEIO'],
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue2 = val),
                                         width: 95.0,
@@ -530,7 +508,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 12.0,
+                                          size: 10.0,
                                         ),
                                         fillColor:
                                             FlutterFlowTheme.of(context).info,
@@ -540,8 +518,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                 .success,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 0.0, 5.0, 0.0),
+                                        margin: const EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 0.0, 5.0, 2.0),
                                         hidesUnderline: true,
                                         disabled:
                                             FFAppState().profile == 'PARENT',
@@ -555,7 +533,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                 .override(
                                                   fontFamily: 'Readex Pro',
                                                   color: Colors.black,
-                                                  fontSize: 12.0,
+                                                  fontSize: 10.0,
                                                 ),
                                       ),
                                     ),
@@ -563,7 +541,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
@@ -572,7 +550,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Expanded(
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.textController3,
@@ -654,9 +632,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
+                                      alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 0.0, 5.0),
                                         child: FlutterFlowDropDown<String>(
                                           controller: _model
@@ -668,7 +646,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                               'TUDO',
                                             ),
                                           ),
-                                          options: ['TUDO', 'NADA', 'MEIO'],
+                                          options: const ['TUDO', 'NADA', 'MEIO'],
                                           onChanged: (val) => setState(() =>
                                               _model.dropDownValue3 = val),
                                           width: 95.0,
@@ -679,14 +657,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.black,
-                                                    fontSize: 12.0,
+                                                    fontSize: 10.0,
                                                   ),
                                           hintText: widget.luncheonConsumn,
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 12.0,
+                                            size: 10.0,
                                           ),
                                           fillColor:
                                               FlutterFlowTheme.of(context).info,
@@ -697,8 +675,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           borderWidth: 2.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 5.0, 0.0),
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 0.0, 5.0, 2.0),
                                           hidesUnderline: true,
                                           disabled:
                                               FFAppState().profile == 'PARENT',
@@ -712,7 +690,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.black,
-                                                    fontSize: 12.0,
+                                                    fontSize: 10.0,
                                                   ),
                                         ),
                                       ),
@@ -721,7 +699,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -734,6 +712,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             fontFamily: 'Readex Pro',
                                             color: FlutterFlowTheme.of(context)
                                                 .success,
+                                            fontSize: 14.0,
                                           ),
                                     ),
                                   ],
@@ -746,7 +725,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
                                         controller: _model.textController4,
@@ -828,9 +807,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 0.0, 5.0),
                                       child: FlutterFlowDropDown<String>(
                                         controller:
@@ -842,7 +821,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             'TUDO',
                                           ),
                                         ),
-                                        options: ['TUDO', 'NADA', 'MEIO'],
+                                        options: const ['TUDO', 'NADA', 'MEIO'],
                                         onChanged: (val) => setState(
                                             () => _model.dropDownValue4 = val),
                                         width: 95.0,
@@ -852,14 +831,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             .override(
                                               fontFamily: 'Readex Pro',
                                               color: Colors.black,
-                                              fontSize: 12.0,
+                                              fontSize: 10.0,
                                             ),
                                         hintText: widget.afternoonSnackConsumn,
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 12.0,
+                                          size: 10.0,
                                         ),
                                         fillColor:
                                             FlutterFlowTheme.of(context).info,
@@ -869,8 +848,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                 .success,
                                         borderWidth: 2.0,
                                         borderRadius: 8.0,
-                                        margin: EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 0.0, 5.0, 0.0),
+                                        margin: const EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 0.0, 5.0, 2.0),
                                         hidesUnderline: true,
                                         disabled:
                                             FFAppState().profile == 'PARENT',
@@ -884,7 +863,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                 .override(
                                                   fontFamily: 'Readex Pro',
                                                   color: Colors.black,
-                                                  fontSize: 12.0,
+                                                  fontSize: 10.0,
                                                 ),
                                       ),
                                     ),
@@ -892,7 +871,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -901,7 +880,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Expanded(
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.textController5,
@@ -983,9 +962,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(1.0, 0.0),
+                                      alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 5.0, 0.0, 5.0),
                                         child: FlutterFlowDropDown<String>(
                                           controller: _model
@@ -997,7 +976,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                               'TUDO',
                                             ),
                                           ),
-                                          options: ['TUDO', 'NADA', 'MEIO'],
+                                          options: const ['TUDO', 'NADA', 'MEIO'],
                                           onChanged: (val) => setState(() =>
                                               _model.dropDownValue5 = val),
                                           width: 95.0,
@@ -1008,14 +987,14 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.black,
-                                                    fontSize: 12.0,
+                                                    fontSize: 10.0,
                                                   ),
                                           hintText: widget.preDinnerConsumn,
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 12.0,
+                                            size: 10.0,
                                           ),
                                           fillColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1026,8 +1005,8 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           borderWidth: 2.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 5.0, 0.0),
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 0.0, 5.0, 2.0),
                                           hidesUnderline: true,
                                           disabled:
                                               FFAppState().profile == 'PARENT',
@@ -1041,7 +1020,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: Colors.black,
-                                                    fontSize: 12.0,
+                                                    fontSize: 10.0,
                                                   ),
                                         ),
                                       ),
@@ -1054,9 +1033,9 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 10.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.textController6,
@@ -1069,6 +1048,16 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText:
+                                                'Descrição do dia do aluno',
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Colors.black,
+                                                      fontSize: 12.0,
+                                                    ),
+                                            hintText:
                                                 'Descrição do dia do aluno',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -1149,7 +1138,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                 if (FFAppState().profile == 'ADMIN')
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1183,21 +1172,21 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                           text: 'Salvar',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 10.0, 0.0),
-                            color: Color(0xFF06D5CD),
+                            color: const Color(0xFF06D5CD),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Inter',
                                   color: Colors.white,
-                                  fontSize: 16.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                             ),
                             borderRadius: BorderRadius.circular(40.0),

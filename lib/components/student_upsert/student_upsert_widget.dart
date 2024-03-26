@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'student_upsert_model.dart';
 export 'student_upsert_model.dart';
@@ -17,9 +16,9 @@ class StudentUpsertWidget extends StatefulWidget {
     String? name,
     String? gender,
     String? classId,
-  })  : this.name = name ?? '1231ads',
-        this.gender = gender ?? 'dasq123',
-        this.classId = classId ?? 'qwqad';
+  })  : name = name ?? '1231ads',
+        gender = gender ?? 'dasq123',
+        classId = classId ?? 'qwqad';
 
   final int? id;
   final String name;
@@ -60,24 +59,24 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 530.0,
           ),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(24.0),
             border: Border.all(
-              color: Color(0xFFF5FBFB),
+              color: const Color(0xFFF5FBFB),
               width: 1.0,
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 12.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -85,21 +84,19 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 10.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Row(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    110.0, 0.0, 0.0, 0.0),
+                            Flexible(
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Aluno',
                                   textAlign: TextAlign.center,
@@ -109,55 +106,35 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .success,
-                                        fontSize: 28.0,
+                                        fontSize: 22.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'STUDENT_UPSERT_COMP__BTN_ON_TAP');
-                                  Navigator.pop(context);
-                                },
-                                text: '',
-                                icon: Icon(
-                                  Icons.close,
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 15.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 25.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).info,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
-                                      ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 8.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'STUDENT_UPSERT_COMP_Icon_hqudppjl_ON_TAP');
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                Icons.close_sharp,
+                                color: FlutterFlowTheme.of(context).success,
+                                size: 16.0,
                               ),
                             ),
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 0.0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
                             child: Text(
                               'Tela de manutenção do cadastro de aluno',
                               textAlign: TextAlign.center,
@@ -166,7 +143,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                   .override(
                                     fontFamily: 'Inter',
                                     color: Colors.black,
-                                    fontSize: 14.0,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -176,15 +153,15 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 0.0),
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -192,7 +169,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: TextFormField(
                                   controller: _model.nameTextFieldController,
@@ -249,6 +226,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.black,
+                                        fontSize: 12.0,
                                       ),
                                   validator: _model
                                       .nameTextFieldControllerValidator
@@ -256,7 +234,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: FlutterFlowDropDown<String>(
                                   controller:
@@ -265,7 +243,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                     _model.genderDropDownValue ??=
                                         widget.gender,
                                   ),
-                                  options: ['MENINO', 'MENINA'],
+                                  options: const ['MENINO', 'MENINA'],
                                   onChanged: (val) => setState(
                                       () => _model.genderDropDownValue = val),
                                   width: double.infinity,
@@ -275,12 +253,13 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.black,
+                                        fontSize: 12.0,
                                       ),
                                   hintText: 'Selecione o genero',
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.keyboard_arrow_down_rounded,
                                     color: Colors.black,
-                                    size: 24.0,
+                                    size: 12.0,
                                   ),
                                   fillColor: FlutterFlowTheme.of(context).info,
                                   elevation: 2.0,
@@ -288,8 +267,8 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                       FlutterFlowTheme.of(context).success,
                                   borderWidth: 2.0,
                                   borderRadius: 8.0,
-                                  margin: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      11.0, 2.0, 11.0, 2.0),
                                   hidesUnderline: true,
                                   disabled: FFAppState().profile == 'PARENT',
                                   isOverButton: true,
@@ -306,7 +285,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: FutureBuilder<ApiCallResponse>(
                                   future: FindClassesSelectionCall.call(),
@@ -349,12 +328,13 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
+                                            fontSize: 12.0,
                                           ),
                                       hintText: 'Selecione a turma',
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: Colors.black,
-                                        size: 24.0,
+                                        size: 12.0,
                                       ),
                                       fillColor:
                                           FlutterFlowTheme.of(context).info,
@@ -363,8 +343,8 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                           FlutterFlowTheme.of(context).success,
                                       borderWidth: 2.0,
                                       borderRadius: 8.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 4.0, 16.0, 4.0),
+                                      margin: const EdgeInsetsDirectional.fromSTEB(
+                                          11.0, 2.0, 11.0, 2.0),
                                       hidesUnderline: true,
                                       disabled:
                                           FFAppState().profile == 'PARENT',
@@ -393,7 +373,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                   if (FFAppState().profile == 'ADMIN')
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -402,7 +382,7 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                             onPressed: () async {
                               logFirebaseEvent(
                                   'STUDENT_UPSERT_COMP_SALVAR_BTN_ON_TAP');
-                              var _shouldSetState = false;
+                              var shouldSetState = false;
                               if (_model.formKey.currentState == null ||
                                   !_model.formKey.currentState!.validate()) {
                                 return;
@@ -414,35 +394,35 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                 classId: _model.classDropDownValue,
                                 gender: _model.genderDropDownValue,
                               );
-                              _shouldSetState = true;
+                              shouldSetState = true;
                               if ((_model.upsertStudentApi?.succeeded ??
                                   true)) {
                                 Navigator.pop(context);
                               } else {
-                                if (_shouldSetState) setState(() {});
+                                if (shouldSetState) setState(() {});
                                 return;
                               }
 
-                              if (_shouldSetState) setState(() {});
+                              if (shouldSetState) setState(() {});
                             },
                             text: 'Salvar',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
-                              color: Color(0xFF06D5CD),
+                              color: const Color(0xFF06D5CD),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Inter',
                                     color: Colors.white,
-                                    fontSize: 16.0,
+                                    fontSize: 14.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                               elevation: 0.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                               ),
                               borderRadius: BorderRadius.circular(40.0),
@@ -467,9 +447,9 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                               text: 'Deletar',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).error,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -477,11 +457,11 @@ class _StudentUpsertWidgetState extends State<StudentUpsertWidget> {
                                     .override(
                                       fontFamily: 'Inter',
                                       color: Colors.white,
-                                      fontSize: 16.0,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                 elevation: 0.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(40.0),

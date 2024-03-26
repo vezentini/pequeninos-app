@@ -5,9 +5,7 @@ import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'summaries_component_model.dart';
 export 'summaries_component_model.dart';
@@ -39,8 +37,8 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, 100.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -168,7 +166,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                           final summariesItem = summaries[summariesIndex];
                           return Builder(
                             builder: (context) => Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 1.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -186,7 +184,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                         insetPadding: EdgeInsets.zero,
                                         backgroundColor: Colors.transparent,
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0)
+                                            const AlignmentDirectional(0.0, 0.0)
                                                 .resolve(
                                                     Directionality.of(context)),
                                         child: SummaryUpsertWidget(
@@ -247,7 +245,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 0.0,
                                         color: Color(0xFFE0E3E7),
@@ -257,7 +255,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -268,7 +266,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -283,7 +281,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                                         fontFamily:
                                                             'Plus Jakarta Sans',
                                                         color:
-                                                            Color(0xFF14181B),
+                                                            const Color(0xFF14181B),
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -304,7 +302,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                                                 BorderRadius.circular(40.0),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(4.0),
+                                            padding: const EdgeInsets.all(4.0),
                                             child: Icon(
                                               Icons
                                                   .keyboard_arrow_right_rounded,
@@ -334,10 +332,10 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
         ),
         if (FFAppState().profile == 'ADMIN')
           Align(
-            alignment: AlignmentDirectional(1.0, 1.0),
+            alignment: const AlignmentDirectional(1.0, 1.0),
             child: Builder(
               builder: (context) => Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 100.0),
                 child: FloatingActionButton(
                   onPressed: () async {
                     logFirebaseEvent(
@@ -349,7 +347,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                           elevation: 0,
                           insetPadding: EdgeInsets.zero,
                           backgroundColor: Colors.transparent,
-                          alignment: AlignmentDirectional(0.0, 0.0)
+                          alignment: const AlignmentDirectional(0.0, 0.0)
                               .resolve(Directionality.of(context)),
                           child: SummaryUpsertWidget(
                             date: dateTimeFormat(
@@ -357,6 +355,7 @@ class _SummariesComponentWidgetState extends State<SummariesComponentWidget>
                               _model.calendarSelectedDay!.start,
                               locale: FFLocalizations.of(context).languageCode,
                             ),
+                            id: '',
                           ),
                         );
                       },

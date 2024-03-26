@@ -1,20 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -49,7 +40,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
               ),
             )
-          : LoginPageWidget(),
+          : const LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -64,42 +55,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ),
                   ),
                 )
-              : LoginPageWidget(),
+              : const LoginPageWidget(),
         ),
         FFRoute(
           name: 'loginPage',
           path: '/loginPage',
-          builder: (context, params) => LoginPageWidget(),
+          builder: (context, params) => const LoginPageWidget(),
         ),
         FFRoute(
           name: 'homePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'classesPage',
           path: '/classesPage',
-          builder: (context, params) => ClassesPageWidget(),
+          builder: (context, params) => const ClassesPageWidget(),
         ),
         FFRoute(
           name: 'studentsPage',
           path: '/studentsPage',
-          builder: (context, params) => StudentsPageWidget(),
+          builder: (context, params) => const StudentsPageWidget(),
         ),
         FFRoute(
           name: 'summariesPage',
           path: '/summariesPage',
-          builder: (context, params) => SummariesPageWidget(),
+          builder: (context, params) => const SummariesPageWidget(),
         ),
         FFRoute(
           name: 'notificationsPage',
           path: '/notificationsPage',
-          builder: (context, params) => NotificationsPageWidget(),
+          builder: (context, params) => const NotificationsPageWidget(),
         ),
         FFRoute(
           name: 'accountsPage',
           path: '/accountsPage',
-          builder: (context, params) => AccountsPageWidget(),
+          builder: (context, params) => const AccountsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -263,7 +254,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
