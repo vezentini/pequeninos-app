@@ -477,6 +477,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
+                                            fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                   ),

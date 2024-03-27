@@ -121,7 +121,7 @@ class _ClassUpsertWidgetState extends State<ClassUpsertWidget> {
                               child: Icon(
                                 Icons.close_sharp,
                                 color: FlutterFlowTheme.of(context).success,
-                                size: 16.0,
+                                size: 22.0,
                               ),
                             ),
                           ],

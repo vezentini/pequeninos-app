@@ -166,7 +166,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                             child: Icon(
                               Icons.close_sharp,
                               color: FlutterFlowTheme.of(context).success,
-                              size: 16.0,
+                              size: 22.0,
                             ),
                           ),
                         ],
@@ -287,7 +287,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                                       AlwaysStoppedAnimation<
                                                           Color>(
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .success,
                                                   ),
                                                 ),
                                               ),
@@ -312,7 +312,7 @@ class _SummaryUpsertWidgetState extends State<SummaryUpsertWidget> {
                                             onChanged: (val) => setState(() =>
                                                 _model.dropDownValue1 = val),
                                             width: double.infinity,
-                                            height: 50.0,
+                                            height: 60.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium

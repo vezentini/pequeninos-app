@@ -93,7 +93,7 @@ class _ClassesComponentWidgetState extends State<ClassesComponentWidget>
                             height: 50.0,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                                FlutterFlowTheme.of(context).success,
                               ),
                             ),
                           ),
